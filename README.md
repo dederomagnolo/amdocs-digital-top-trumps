@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -66,3 +67,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+=======
+# amdocs-digital-top-trumps
+
+### CodePen com a parte de trás da carta nova e com código atualizado para o jogador sempre jogar
+- https://codepen.io/santos_bruno/pen/jOEYYmp
+>>>>>>> 911cb46a1933fe4c87e540c104847b45030d6ee6
