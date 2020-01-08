@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Bahnschrift Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Bahnschrift Regular'), url('./fonts/BAHNSCHRIFT.woff') format('woff');
+}
+
+.card-background {
+    background-color: rgb(44, 42, 66);
+    height: 1115px;
+    width: 780px;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+.inner-card {
+    height: 900px;
+    width: 680px;
+    background-color: rgb(78, 76, 97);
+    border-radius: 24px;
+    border-style:solid;
+    border-color:  rgb(188, 200, 216);
+    border-width: 6px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.description-container {
+    background-color: rgb(188, 200, 216);
+    height: 110px;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Bahnschrift;
+}
+
+.language-container {
+    background-color: white;
+    height: 315px;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-container {
+    background-color: rgb(188, 200, 216);
+    margin-top: inherit;
+    height: 100px;
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+
+
+.parameters-text{
+    color: white;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-family: century-gothic;
+    display: block;
+}
+
+h1 {
+    padding: 5px;
+}
+
+.description-text {
+    text-align: center;
+    font-family: Bahnschrift;
+    font-size: 1px;
+}
+
+.footer {
+    width: inherit;
+    display: flex;
+    margin-top: 60px;
+    height: 50px;
+}
+
+.logo-amdocs{
+    float: left;
+    margin-top: 60px;
+}
+
+.colored-amdocs-bar {
+    position: relative;
+    margin-top: 152px;
+    background-image: linear-gradient(to right, rgb(228,162,49) , rgb(204,32,117));  
+    width: 795px;
+    height: 13px;
+}
