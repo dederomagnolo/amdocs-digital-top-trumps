@@ -48,10 +48,40 @@ window.onload = function() {
 
   // Create the Game Object which contains properties and methods for the state of the overall game
   function createGame() {
+    this.startTimer = () => {
+      setInterval(function() {
+        if (game.timer > 0) {
+          game.timer -= 1000;
+          var min = parseInt(game.timer / 60000);
+          var sec = parseInt((game.timer % 60000) / 1000);
+
+          if (sec < 10) {
+            $("#timer").text("Time: " + min + ":0" + sec);
+            console.log("Time: " + min + ":0" + sec);
+          } else {
+            $("#timer").text("Time: " + min + ":" + sec);
+            console.log("Time: " + min + ":0" + sec);
+          }
+        } else {
+          game.finishGame();
+        }
+      }, 1000);
+    };
+
+    this.finishGame = () => {
+      $(".gameover").css("visibility", "visible");
+      game.score += game.timer / 1000;
+      game.timer = 0;
+    };
+
+    this.score = 0;
+    this.timer = 300000;
+    this.startTimer();
     this.player_pack = [];
     this.player_pack[0] = new createPack("player1_cards");
     this.player_pack[1] = new createPack("player2_cards");
     this.current_player = 0;
+
     // method to random deal a pack of cards into two piles
     this.deal_pack = function(pack) {
       // shuffle the input pack
@@ -80,15 +110,23 @@ window.onload = function() {
       this.player_pack[lose_player].cards.splice(0, 1); // delete the losing card from the losing player
 
       if (this.player_pack[lose_player].cards.length === 0) {
-        $(".gameover").css("visibility", "visible");
+        game.finishGame();
       }
+
+      if (win_player == 0) {
+        this.score += 30;
+      } else if (win_player == 1) {
+        this.score -= 30;
+      }
+
+      $("#score").text("Score: " + this.score);
 
       //this.current_player = win_player; // change the current_player to be the winning player
     };
     // method shows the current state of the game
     this.show_game = function() {
       // find the elements for the cards
-      var $card_areas = $(".card");
+      var $card_areas = $(".card_style");
 
       // Add the class "selected" to current player"s and flipped to the non-player's card.
       $card_areas.removeClass("selected flipped"); //remove classes from both cards first
@@ -141,15 +179,15 @@ window.onload = function() {
       if (this.current_player === 0) {
         shift_direction = "-200px";
       }
-      var $winner_card = $(".card").eq(this.current_player);
-      var $loser_card = $(".card").eq(1 - this.current_player);
+      var $winner_card = $(".card_style").eq(this.current_player);
+      var $loser_card = $(".card_style").eq(1 - this.current_player);
 
       var pos_winner = $winner_card.position();
       var pos_loser = $loser_card.position();
       var left_shift = pos_winner.left - pos_loser.left;
 
       // adds the CSS class "flipped" which causes the cards to transition to their flipped side.
-      $(".card").addClass("flipped");
+      $(".card_style").addClass("flipped");
 
       $(".front, .back")
         .animate({ left: shift_direction }, "slow") // moves
@@ -165,8 +203,8 @@ window.onload = function() {
     this.compare_animation = function(i) {
       var winner = this.current_player;
       var loser = 1 - this.current_player;
-      var $winner_card = $(".card").eq(winner);
-      var $loser_card = $(".card").eq(loser);
+      var $winner_card = $(".card_style").eq(winner);
+      var $loser_card = $(".card_style").eq(loser);
       $winner_card
         .find("tr")
         .eq(i)
@@ -175,7 +213,7 @@ window.onload = function() {
         .find("tr")
         .eq(i)
         .addClass("loser");
-      $(".card").removeClass("flipped selected");
+      $(".card_style").removeClass("flipped selected");
       $winner_card.addClass("selected");
       $(".front").one("transitionend", function() {
         game.transition_animation();
@@ -188,56 +226,16 @@ window.onload = function() {
   var game = new createGame();
 
   // Add cards to the pack
-  FullPack.add_new_card(
-    "PHP",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png",
-    [1995, 7.0, 9, 6]
-  );
-  FullPack.add_new_card(
-    "CSS",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png",
-    [1996, 3, 6, 4]
-  );
-  FullPack.add_new_card(
-    "HTML",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png",
-    [1993, 5.1, 3, 6]
-  );
-  FullPack.add_new_card(
-    "jQuery",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/jquery-logo.png",
-    [2006, 2.1, 6, 5]
-  );
-  FullPack.add_new_card(
-    "Python",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png",
-    [1991, 3.5, 6, 9]
-  );
-  FullPack.add_new_card(
-    "Sass",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png",
-    [2006, 3.4, 5, 2]
-  );
-  FullPack.add_new_card(
-    "BBC BASIC",
-    "https://upload.wikimedia.org/wikipedia/commons/0/0e/Hard_reset_BBC_Micro_32K_Acorn_DFS.gif",
-    [1981, 5.9, 2, 2]
-  );
-  FullPack.add_new_card(
-    "Matlab",
-    "http://www.mathworks.com/cmsimages/64848_wl_cc_logo_membrane_2002_wl.gif",
-    [1984, 8.6, 5, 8]
-  );
-  FullPack.add_new_card(
-    "Scratch",
-    "https://pbs.twimg.com/profile_images/57362682/cat_400x400.jpg",
-    [2002, 2.0, 1, 2]
-  );
-  FullPack.add_new_card(
-    "JavaScript",
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png",
-    [1995, 1.8, 7, 8]
-  );
+  FullPack.add_new_card("Node js", "./Images/nodejs.png", [2, 16, 9, 6]);
+  FullPack.add_new_card("React", "./Images/react.png", [1996, 3, 6, 4]);
+  FullPack.add_new_card("Java", "./Images/java.png", [1993, 5.1, 3, 6]);
+  FullPack.add_new_card("CSS 3", "./Images/css3.png", [2006, 2.1, 6, 5]);
+  FullPack.add_new_card("HTML", "./Images/html.png", [1991, 3.5, 6, 9]);
+  FullPack.add_new_card("Sass", "./Images/nodejs.png", [2006, 3.4, 5, 2]);
+  FullPack.add_new_card("BBC BASIC", "./Images/nodejs.png", [1981, 5.9, 2, 2]);
+  FullPack.add_new_card("Matlab", "./Images/nodejs.png", [1984, 8.6, 5, 8]);
+  FullPack.add_new_card("Scratch", "./Images/nodejs.png", [2002, 2.0, 1, 2]);
+  FullPack.add_new_card("JavaScript", "./Images/nodejs.png", [1995, 1.8, 7, 8]);
 
   // Shuffle and deal the cards to two players
   game.deal_pack(FullPack);
@@ -255,6 +253,8 @@ window.onload = function() {
   // Callback function for the "shuffle" button
   // Shuffles (randomly permutes) the order of the card.
   $("#button_shuffle").on("click", function() {
+    game.score = 0;
+    $("#score").text("Score: " + game.score);
     game.deal_pack(FullPack);
     game.show_game();
     $(".gameover").css("visibility", "hidden");
@@ -269,7 +269,7 @@ window.onload = function() {
   });
 
   // Callback for selecting a answer
-  $(".card").on("click", "tr", function() {
+  $(".card_style").on("click", "tr", function() {
     if ($(this).parents(".selected").length === 0) {
       return;
     } // KLUDGE quit the function if the ancestor card was not selected

@@ -1,8 +1,6 @@
 .card_section {
   /* border: dotted gray 2px;
-  background-color: PaleGreen;
-  max-width: 800px;
-  min-height: 400px; */
+  background-color: PaleGreen;*/
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -11,9 +9,9 @@
   position: relative;
 }
 
-.card {
-  width: 780px;
-  height: 1115px;
+.card_style {
+  width: 300px;
+  height: 500px;
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
@@ -34,7 +32,6 @@
   height: 90%;
   border: double 10px dimgray;
   border-radius: 20px;
-  padding-top: 10px;
 }
 
 .front,
@@ -72,13 +69,16 @@
   -webkit-transform: rotatey(180deg);
   transform: rotatey(180deg);
 }
+.no-padding {
+  padding: 0px !important;
+}
 
 .selected .next_card {
   /* box-shadow: 10px 10px 20px grey, 0px 0px 50px 20px yellow; */
 }
 
 figure {
-  postion: relative;
+  position: relative;
   width: 85%;
   margin: 10px auto;
   padding: 0px;
@@ -87,7 +87,6 @@ figure {
 .card_picture {
   -o-object-fit: contain;
   object-fit: contain;
-  height: 150px;
   width: 100%;
 }
 
@@ -112,12 +111,12 @@ table.card_table {
   padding-bottom: 4px;
 }
 
-.card.flipped .front {
+.card_style.flipped .front {
   -webkit-transform: rotatey(-180deg);
   transform: rotatey(-180deg);
 }
 
-.card.flipped .back {
+.card_style.flipped .back {
   -webkit-transform: rotatey(0deg);
   transform: rotatey(0deg);
 }
@@ -135,7 +134,7 @@ tr.loser {
   background-color: red;
 }
 
-.card.selected tr:not(.winner):hover {
+.card_style.selected tr:not(.winner):hover {
   /*  border: dotted gray 2px; */
   background-color: Gold;
   cursor: pointer;

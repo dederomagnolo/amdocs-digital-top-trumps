@@ -2,37 +2,98 @@
   <head>
     <title>Agora vai!</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style1.css">
     <script src="index.js"></script>
     <script src="jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="card.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
   </head>
   <body>
+    <div >
+      <h1 id='score' class='score'>
+    
+    <span id="score">SCORE: 0</span>
+  </h1>
+    </div >
+    <div>
+      <h1 class='timer'>
+        <span id="timer">Time: 00:00</span>
+      </h1>
+    </div> 
     <div class="card_section">
-        <div class="card flipped hidden">
-          <div class="front">
-            <figure>
-              <img class="card_picture" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png" />
-            </figure>
-            <p class="card_name"> php </p>
-            <table class="card_table">
-              <tbody>
-                <tr>
-                  <td class="left-align">Amdocs usage:</td>
-                  <td class="data">1995</td>
-                </tr>
-                <tr>
-                  <td class="left-align">Popularity:</td>
-                  <td class="data">7.0</td>
-                </tr>
-                <tr>
-                  <td class="left-align">Adoption phase:</td>
-                  <td class="data">9</td>
-                </tr>
-                <tr>
-                  <td class="left-align">Skill Priority:</td>
-                  <td class="data">6</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="card-background card_style flipped hidden">
+          <div class="front inner-card">
+            <div class="row">
+              <div class="col-md-12">
+                <p class="card_name"> php </p>
+              </div>
+            </div>
+            <div class="col-md-12 no-padding">
+              <div class="language-container">
+                  <div class="card-image">
+                      <div class="row justify-content-center">
+                        <figure>
+                          <img class="card_picture" src="./assets/node.jpg" alt="" srcset="" width="120" height="75">
+                        </figure>
+                          
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12 no-padding">
+            <div class="description-container">
+                <div class="row">
+                  <div class="col-md-12">
+                    <span class="description-text">
+                      Cat ipsum dolor sit amet, ocicat donskoy norwegian forest.
+                  </span>    
+                  </div>         
+                </div>
+            </div>
+        </div>
+            <div class="col-md-12">
+                <div class="status-container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <table class="parameters-text">
+                          <tbody>
+                            <tr>
+                              <td class="left-align"><span><span>Amdocs usage:</span></td>
+                              <td class="data">1995</td>
+                            </tr>
+                            <tr>
+                              <td class="left-align">Popularity:</td>
+                              <td class="data">7.0</td>
+                            </tr>
+                            <tr>
+                              <td class="left-align">Adoption phase:</td>
+                              <td class="data">9</td>
+                            </tr>
+                            <tr>
+                              <td class="left-align">Skill Priority:</td>
+                              <td class="data">6</td>
+                            </tr>
+                            </tbbdy>
+                          </table>
+                      </div>               
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="">
+                  <div class="logo-amdocs">
+                    <figure>
+                      <img src="./assets/amdocs_logo.png" alt="" srcset="" width="120" height="30">
+                    </figure>
+                  </div>
+                  <div class="col">
+                  </div>
+                   
+                </div>
+            </div>
           </div>
           <div class="back">
           </div>
@@ -43,32 +104,78 @@
           </div>
         </div>
       
-        <div class="card">
-          <div class="front">
-            <figure>
-              <img class="card_picture" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png" />
-            </figure>
-            <p class="card_name"> php </p>
-            <table class="card_table">
-              <tbody>
-                <tr>
-                  <td class="left-align">Amdocs usage:</td>
-                  <td class="data">1995</td>
-                </tr>
-                <tr>
-                  <td class="left-align">Popularity:</td>
-                  <td class="data">7.0</td>
-                </tr>
-                <tr>
-                  <td class="left-align">Adoption phase:</td>
-                  <td class="data">9</td>
-                </tr>
-                <tr>
-                  <td class="left-align">Skill Priority:</td>
-                  <td class="data">6</td>
-                </tr>
-                </tbbdy>
-            </table>
+        <div class="card_style card-background">
+          <div class="inner-card front">
+            <div class="row">
+              <div class="col-md-12">
+                <p class="card_name"> php </p>
+              </div>
+
+              <div class="col-md-12">
+                <div class="language-container">
+                  <div class="card-image">
+                    <div class="row justify-content-center">
+                      <figure>
+                        <img class="card_picture" src="./assets/node.jpg" alt="" srcset="" width="120" height="75">
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="description-container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <span class="description-text">
+                          Cat ipsum dolor sit amet, ocicat donskoy norwegian forest.
+                      </span> 
+                      </div>            
+                    </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="status-container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <table class="parameters-text">
+                          <tbody>
+                            <tr>
+                              <td class="left-align"><span><span>Amdocs usage:</span></td>
+                              <td class="data">1995</td>
+                            </tr>
+                            <tr>
+                              <td class="left-align">Popularity:</td>
+                              <td class="data">7.0</td>
+                            </tr>
+                            <tr>
+                              <td class="left-align">Adoption phase:</td>
+                              <td class="data">9</td>
+                            </tr>
+                            <tr>
+                              <td class="left-align">Skill Priority:</td>
+                              <td class="data">6</td>
+                            </tr>
+                            </tbbdy>
+                          </table>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="">
+                  <div class="logo-amdocs">
+                    <figure>
+                      <img src="./assets/amdocs_logo.png" alt="" srcset="" width="120" height="30">
+                    </figure>
+                  </div>
+                  <div class="col">
+                  </div>
+                   
+                </div>
+            </div>
+            </div>
           </div>
           <div class="back">
           </div>

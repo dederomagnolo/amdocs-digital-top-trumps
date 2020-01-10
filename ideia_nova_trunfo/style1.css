@@ -8,15 +8,15 @@
 
 .card-background {
   background-color: rgb(44, 42, 66);
-  height: 1115px;
-  width: 780px;
+  height: 500px;
+  width: 300px;
   box-sizing: border-box;
   padding-top: 50px;
 }
 
 .inner-card {
-  height: 900px;
-  width: 680px;
+  height: 500px;
+  width: 300px;
   background-color: rgb(78, 76, 97);
   border-radius: 24px;
   border-style: solid;
@@ -28,7 +28,7 @@
 
 .description-container {
   background-color: rgb(188, 200, 216);
-  height: 110px;
+  height: 50px;
   width: inherit;
   display: flex;
   justify-content: center;
@@ -38,23 +38,23 @@
 
 .language-container {
   background-color: white;
-  height: 315px;
+  height: 150px;
   width: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.name-container {
+.card_name {
   background-color: rgb(188, 200, 216);
-  margin-top: inherit;
-  height: 100px;
+  height: 50px;
   width: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
+  margin: 0px !important;
 }
 
 .parameters-text {
@@ -72,7 +72,8 @@ h1 {
 .description-text {
   text-align: center;
   font-family: Bahnschrift;
-  font-size: 1px;
+  font-size: 12px;
+  padding: 5px;
 }
 
 .footer {
@@ -83,8 +84,8 @@ h1 {
 }
 
 .logo-amdocs {
-  float: left;
-  margin-top: 60px;
+  margin-top: 90px;
+  margin-left: 35px;
 }
 
 .colored-amdocs-bar {
