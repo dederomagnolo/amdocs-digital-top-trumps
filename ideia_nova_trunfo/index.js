@@ -80,7 +80,7 @@ window.onload = function() {
     this.player_pack = [];
     this.player_pack[0] = new createPack("player1_cards");
     this.player_pack[1] = new createPack("player2_cards");
-    this.current_player = 0;
+    this.current_player = 1;
 
     // method to random deal a pack of cards into two piles
     this.deal_pack = function(pack) {
@@ -98,7 +98,7 @@ window.onload = function() {
       this.player_pack[1].cards = pack.cards.slice(num_each); //slice the pack from num_each to end
 
       // set the current player to be the first player
-      this.current_player = 0;
+      this.current_player = 1;
     };
     // method gives top cards to the winning player
     this.win = function(win_player) {
