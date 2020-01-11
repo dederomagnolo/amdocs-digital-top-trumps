@@ -140,6 +140,7 @@ tr.loser {
   cursor: pointer;
 }
 
+
 .button {
   display: inline-block;
   background: RoyalBlue;
@@ -166,4 +167,176 @@ div.gameover {
   width: 100%;
   text-align: center;
   visibility: hidden;
+}
+
+
+
+
+@font-face {
+  font-family: "Bahnschrift Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Bahnschrift Regular"),
+    url("./fonts/BAHNSCHRIFT.woff") format("woff");
+}
+
+.card-background {
+  background-color: rgb(44, 42, 66);
+  height: 500px;
+  width: 300px;
+  box-sizing: border-box;
+  padding-top: 50px;
+}
+
+.inner-card {
+  height: 500px;
+  width: 300px;
+  background-color: rgb(44, 42, 66);
+  border-radius: 0px;
+  border-style: solid;
+  border-color: rgb(188, 200, 216);
+  border-width: 3px;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 20px;
+}
+
+.tbody-style {
+  border-radius: 0 0 15px 15px;
+  background-color: rgb(78, 76, 97);
+}
+
+.card-status {
+  border: 3px solid rgb(188, 200, 216);
+  border-radius: 0 0 15px 15px;
+}
+
+.description-container {
+  background-color: rgb(188, 200, 216);
+  height: 50px;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Bahnschrift;
+}
+
+.language-container {
+  background-color: white;
+  height: 150px;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgb(188, 200, 216);;
+}
+
+.card_name {
+  background-color: rgb(188, 200, 216);
+  height: 50px;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  margin: 0px !important;
+}
+
+.left-border {
+  border-radius: 0 0 0 15px;
+}
+.right-border {
+  border-radius: 0 0 15px 0;
+}
+
+.parameters-text {
+  color: white;
+  font-family: century-gothic;
+  width: 100%;
+}
+
+h1 {
+  padding: 5px;
+}
+
+.description-text {
+  text-align: center;
+  font-family: Bahnschrift;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.footer {
+  width: inherit;
+  display: flex;
+  margin-top: 60px;
+  height: 50px;
+}
+
+.logo-amdocs {
+  margin-top: 90px;
+  margin-left: 35px;
+}
+
+.colored-amdocs-bar {
+  background-image: linear-gradient(
+    to right,
+    rgb(228, 162, 49),
+    rgb(204, 32, 117)
+  );
+}
+
+
+@media screen and (max-width: 768px) {
+  .card_style.selected tr:not(.winner):hover {
+    /*  border: dotted gray 2px; */
+    background-color: inherit;
+  }
+  .card_section {
+   /*  height: 100%; */
+  }
+  .inner-card {
+    height:  340px;
+    width: 230px;
+    background-color: rgb(44, 42, 66);
+    border-radius: 0px;
+    border-style: solid;
+    border-color: rgb(188, 200, 216);
+    border-width: 3px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 20px;
+  }
+  .card_section {
+    display: grid;
+    flex-flow: unset; 
+    justify-content: space-around; 
+    margin: 0px auto;
+    font-family: Georgia; 
+    position: relative; 
+  }
+  .card_style {
+    height: 320px;
+    width: 230px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1em;
+    -webkit-perspective: 800px;
+    perspective: 800px;
+  }
+  .card_name {
+    height: 30px;
+  }
+  .language-container {
+    height: 80px;
+  }
+  .description-container {
+    height: 40px;
+  }
+  .logo-amdocs {
+    margin-top: 8px;
+    margin-left: 22px;
+  }
 }
