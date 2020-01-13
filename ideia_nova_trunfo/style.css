@@ -179,14 +179,52 @@ div.gameover {
 }
 
 .timer {
-  font-family: "DS-DIGIT";
+  /*  font-family: "DS-DIGIT";
   background-color: #202020;
   border-color: rgb(59, 59, 59);
   border-width: 3px;
   font-size: 45px;
   border-style: solid;
   color: red;
+  text-shadow: 0 0 2px rgba(255, 156, 156), 0 0 6px rgba(255, 0, 0); */
+}
+
+.top_data {
+  height: 71px;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  font-family: "DS-DIGIT";
+  background-color: #202020;
+  border-color: rgb(59, 59, 59);
+  border-width: 3px;
+  font-size: 47px;
+  border-style: solid;
+  color: red;
   text-shadow: 0 0 2px rgba(255, 156, 156), 0 0 6px rgba(255, 0, 0);
+  /* align-items: center;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  margin: 0px !important; */
+}
+
+.top_data1 {
+  height: 71px;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  font-family: "DS-DIGIT";
+  background-color: #202020;
+  border-color: rgb(59, 59, 59);
+  border-width: 3px;
+  font-size: 47px;
+  border-style: solid;
+  color: rgb(0, 200, 0);
+  text-shadow: 0 0 2px rgba(156, 255, 156), 0 0 6px rgba(0, 255, 0);
+}
+
+.fix-timer-space {
+  min-width: 202px;
 }
 
 @font-face {
@@ -354,5 +392,19 @@ h1 {
   .logo-amdocs {
     margin-top: 8px;
     margin-left: 22px;
+  }
+
+  .top_data {
+    height: 36px;
+    font-size: 23px;
+  }
+
+  .top_data1 {
+    height: 36px;
+    font-size: 23px;
+  }
+
+  .fix-timer-space {
+    min-width: 93px;
   }
 }
