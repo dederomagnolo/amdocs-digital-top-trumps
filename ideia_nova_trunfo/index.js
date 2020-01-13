@@ -75,7 +75,7 @@ window.onload = function() {
     };
 
     this.score = 0;
-    this.timer = 300000;
+    this.timer = 180000;
     this.startTimer();
     this.player_pack = [];
     this.player_pack[0] = new createPack("player1_cards");
