@@ -1,10 +1,11 @@
 window.onload = function() {
   // Constructor Function for a single card
-  function createCard(name, image_src, data, id) {
+  function createCard(name, image_src, data, id, description) {
     this.name = name;
     this.img = image_src;
     this.data = data;
     this.id = id;
+    this.description = description;
   }
 
   // Constructor Function for an empty pack
@@ -13,9 +14,9 @@ window.onload = function() {
     this.cards = [];
 
     // Method to add a new card to the pack
-    this.add_new_card = function(name, image_src, data) {
+    this.add_new_card = function(name, image_src, data, description) {
       var num_cards = this.cards.length;
-      var new_card = new createCard(name, image_src, data, num_cards + 1);
+      var new_card = new createCard(name, image_src, data, num_cards + 1, description);
       this.cards.push(new_card);
     };
 
@@ -145,6 +146,7 @@ window.onload = function() {
           // Assign the relevant details of the cards to their place on the DOM
           $player_card_area.find(".card_name").text(top_card.name); // name of card
           $player_card_area.find("img.card_picture").attr("src", top_card.img); // attribute the image source
+          $player_card_area.find("#description-text").text(top_card.description)
           $player_card_area
             .find(".num_cards")
             .text(this.player_pack[player].cards.length); // nuber of cards in this player pback
@@ -226,16 +228,16 @@ window.onload = function() {
   var game = new createGame();
 
   // Add cards to the pack
-  FullPack.add_new_card("Node js", "./Images/nodejs.png", [2, 16, 9, 6]);
-  FullPack.add_new_card("React", "./Images/react.png", [1996, 3, 6, 4]);
-  FullPack.add_new_card("Java", "./Images/java.png", [1993, 5.1, 3, 6]);
-  FullPack.add_new_card("CSS 3", "./Images/css3.png", [2006, 2.1, 6, 5]);
-  FullPack.add_new_card("HTML", "./Images/html.png", [1991, 3.5, 6, 9]);
-  FullPack.add_new_card("Sass", "./Images/nodejs.png", [2006, 3.4, 5, 2]);
-  FullPack.add_new_card("BBC BASIC", "./Images/nodejs.png", [1981, 5.9, 2, 2]);
-  FullPack.add_new_card("Matlab", "./Images/nodejs.png", [1984, 8.6, 5, 8]);
-  FullPack.add_new_card("Scratch", "./Images/nodejs.png", [2002, 2.0, 1, 2]);
-  FullPack.add_new_card("JavaScript", "./Images/nodejs.png", [1995, 1.8, 7, 8]);
+  FullPack.add_new_card("Node js", "./Images/nodejs.png", [2, 16, 9, 6], "1");
+  FullPack.add_new_card("React", "./Images/react.png", [1996, 3, 6, 4], "2");
+  FullPack.add_new_card("Java", "./Images/java.png", [1993, 5.1, 3, 6], "3");
+  FullPack.add_new_card("CSS 3", "./Images/css3.png", [2006, 2.1, 6, 5], "4");
+  FullPack.add_new_card("HTML", "./Images/html.png", [1991, 3.5, 6, 9]), "5";
+  FullPack.add_new_card("Sass", "./Images/nodejs.png", [2006, 3.4, 5, 2], "5");
+  FullPack.add_new_card("BBC BASIC", "./Images/nodejs.png", [1981, 5.9, 2, 2], "5");
+  FullPack.add_new_card("Matlab", "./Images/nodejs.png", [1984, 8.6, 5, 8], "5");
+  FullPack.add_new_card("Scratch", "./Images/nodejs.png", [2002, 2.0, 1, 2], "5");
+  FullPack.add_new_card("JavaScript", "./Images/nodejs.png", [1995, 1.8, 7, 8], "5");
 
   // Shuffle and deal the cards to two players
   game.deal_pack(FullPack);
