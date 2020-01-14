@@ -70,12 +70,27 @@ window.onload = function() {
 
     this.finishGame = () => {
       $(".gameover").css("visibility", "visible");
-      game.score += game.timer / 1000;
+      if (game.timer > 0 && game.player_pack[0].cards.length > 0) {
+        game.score += game.timer / 1000;
+      }
+
+      if (game.player_pack[0].cards.length > game.player_pack[1].cards.length) {
+        $("#winner").text("You win!");
+      } else if (
+        game.player_pack[0].cards.length < game.player_pack[1].cards.length
+      ) {
+        $("#winner").text("You lose!");
+      } else {
+        $("#winner").text("Draw game!");
+      }
+
       game.timer = 0;
+      $("#finish_score").text("Score: " + game.score);
     };
 
     this.score = 0;
     this.timer = 180000;
+    //this.timer = 800;
     this.startTimer();
     this.player_pack = [];
     this.player_pack[0] = new createPack("player1_cards");
@@ -285,7 +300,7 @@ window.onload = function() {
     game.compare_animation(2);
   });
 
-  var colors = new Array(
+  /* var colors = new Array(
     [24, 76, 90],
     [247, 114, 65],
     [238, 21, 126],
@@ -356,5 +371,5 @@ window.onload = function() {
     }
   }
 
-  setInterval(updateGradient, 10);
+  setInterval(updateGradient, 10); */
 };

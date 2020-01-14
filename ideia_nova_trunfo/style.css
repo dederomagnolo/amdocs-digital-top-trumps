@@ -7,6 +7,7 @@
   margin: 0px auto;
   font-family: Georgia;
   position: relative;
+  padding-top: 80px;
 }
 
 .card_style {
@@ -48,7 +49,7 @@
   left: 12px;
   top: 12px;
   z-index: -1;
-  box-shadow: 10px 10px 20px gray;
+  box-shadow: 10px 10px 20px #00ff0052
   border-radius: 10px;
 }
 
@@ -59,12 +60,13 @@
 
 .back,
 .next_card {
-  background-image: url(https://media.licdn.com/dms/image/C560BAQGHOsstLEWnCw/company-logo_200_200/0?e=2159024400&v=beta&t=_68ZtKeL_Viqim7k4w-fioOQp9q5WfAzlwZVVnInXvc);
+  background-image: url("https://media.licdn.com/dms/image/C560BAQGHOsstLEWnCw/company-logo_200_200/0?e=2159024400&v=beta&t=_68ZtKeL_Viqim7k4w-fioOQp9q5WfAzlwZVVnInXvc");
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background-position: center;
   background-color: #2d2a44;
   border-radius: 10px;
+  background-size: 200px 200px;
 }
 
 .back {
@@ -79,10 +81,9 @@
   /* box-shadow: 10px 10px 20px grey, 0px 0px 50px 20px yellow; */
 }
 
-figure {
+.figure-style {
   position: relative;
   width: 85%;
-  margin: 10px auto;
   padding: 0px;
 }
 
@@ -161,13 +162,14 @@ tr.loser {
 
 div.gameover {
   color: black;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.39);
   position: absolute;
   top: 30%;
   left: 0;
   width: 100%;
   text-align: center;
   visibility: hidden;
+  font-family: "Press Start 2P", monospace;
 }
 
 @font-face {
@@ -195,11 +197,8 @@ div.gameover {
   display: flex;
   justify-content: space-between;
   font-family: "DS-DIGIT";
-  background-color: #202020;
-  border-color: rgb(59, 59, 59);
-  border-width: 3px;
+  /* background-color: rgba(0, 0, 0, 0.6); */
   font-size: 47px;
-  border-style: solid;
   color: red;
   text-shadow: 0 0 2px rgba(255, 156, 156), 0 0 6px rgba(255, 0, 0);
   /* align-items: center;
@@ -214,11 +213,8 @@ div.gameover {
   display: flex;
   justify-content: space-between;
   font-family: "DS-DIGIT";
-  background-color: #202020;
-  border-color: rgb(59, 59, 59);
-  border-width: 3px;
+  /* background-color: #202020; */
   font-size: 47px;
-  border-style: solid;
   color: rgb(0, 200, 0);
   text-shadow: 0 0 2px rgba(156, 255, 156), 0 0 6px rgba(0, 255, 0);
 }
@@ -261,10 +257,22 @@ div.gameover {
   background-color: rgb(78, 76, 97);
 }
 
-body {
-  background-color: #000000;
+/* body {
+  background-color: #ffffff;
   padding: 0px;
   margin: 0px;
+} */
+body,
+html {
+  height: 100%;
+  background-color: #111;
+}
+.bg {
+  background: url("https://martechseries.com/wp-content/uploads/2019/09/Samsung-and-Amdocs-Partner-to-Accelerate-Communications-Service-Providersu2019-Deployment-of-5G-Open-Cloud-Networks-1024x579.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 #gradient {
@@ -355,6 +363,9 @@ h1 {
     rgb(204, 32, 117)
   );
 }
+.fix-top-middle-image {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
   .card_style.selected tr:not(.winner):hover {
@@ -375,6 +386,7 @@ h1 {
     margin-left: 50px;
     margin-right: 50px;
     padding: 20px;
+    border-radius: 10px;
   }
   .card_section {
     display: grid;
@@ -383,6 +395,7 @@ h1 {
     margin: 0px auto;
     font-family: Georgia;
     position: relative;
+    padding-top: 0px;
   }
   .card_style {
     height: 320px;
@@ -421,4 +434,13 @@ h1 {
   .fix-timer-space {
     min-width: 93px;
   }
+  .fix-score-space {
+    min-width: 126px;;
+  }
+  .context img {
+    display: none;
+  }
+  .fix-top-middle-image {
+    display: inline;
+  }  
 }
