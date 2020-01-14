@@ -25,6 +25,7 @@
   margin-left: 50px;
   margin-right: 50px;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .tbody-style {
@@ -54,7 +55,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid rgb(188, 200, 216);;
+  border: 3px solid rgb(188, 200, 216);
 }
 
 .card_name {

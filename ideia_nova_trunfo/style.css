@@ -49,6 +49,7 @@
   top: 12px;
   z-index: -1;
   box-shadow: 10px 10px 20px gray;
+  border-radius: 10px;
 }
 
 .front {
@@ -63,6 +64,7 @@
   /* background-attachment: fixed; */
   background-position: center;
   background-color: #2d2a44;
+  border-radius: 10px;
 }
 
 .back {
@@ -140,7 +142,6 @@ tr.loser {
   cursor: pointer;
 }
 
-
 .button {
   display: inline-block;
   background: RoyalBlue;
@@ -169,15 +170,68 @@ div.gameover {
   visibility: hidden;
 }
 
-
-
-
 @font-face {
   font-family: "Bahnschrift Regular";
   font-style: normal;
   font-weight: normal;
   src: local("Bahnschrift Regular"),
     url("./fonts/BAHNSCHRIFT.woff") format("woff");
+}
+
+.timer {
+  /*  font-family: "DS-DIGIT";
+  background-color: #202020;
+  border-color: rgb(59, 59, 59);
+  border-width: 3px;
+  font-size: 45px;
+  border-style: solid;
+  color: red;
+  text-shadow: 0 0 2px rgba(255, 156, 156), 0 0 6px rgba(255, 0, 0); */
+}
+
+.top_data {
+  height: 71px;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  font-family: "DS-DIGIT";
+  background-color: #202020;
+  border-color: rgb(59, 59, 59);
+  border-width: 3px;
+  font-size: 47px;
+  border-style: solid;
+  color: red;
+  text-shadow: 0 0 2px rgba(255, 156, 156), 0 0 6px rgba(255, 0, 0);
+  /* align-items: center;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  margin: 0px !important; */
+}
+
+.top_data1 {
+  height: 71px;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+  font-family: "DS-DIGIT";
+  background-color: #202020;
+  border-color: rgb(59, 59, 59);
+  border-width: 3px;
+  font-size: 47px;
+  border-style: solid;
+  color: rgb(0, 200, 0);
+  text-shadow: 0 0 2px rgba(156, 255, 156), 0 0 6px rgba(0, 255, 0);
+}
+
+.fix-timer-space {
+  min-width: 202px;
+}
+
+@font-face {
+  font-family: "DS-DIGIT";
+  font-style: normal;
+  font-weight: normal;
+  src: local("DS-DIGIT"), url("./fonts/DS-DIGIT.TTF");
 }
 
 .card-background {
@@ -199,11 +253,26 @@ div.gameover {
   margin-left: 50px;
   margin-right: 50px;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .tbody-style {
   border-radius: 0 0 15px 15px;
   background-color: rgb(78, 76, 97);
+}
+
+body {
+  background-color: #000000;
+  padding: 0px;
+  margin: 0px;
+}
+
+#gradient {
+  width: 100%;
+  height: 800px;
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
 }
 
 .card-status {
@@ -228,7 +297,7 @@ div.gameover {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid rgb(188, 200, 216);;
+  border: 3px solid rgb(188, 200, 216);
 }
 
 .card_name {
@@ -287,17 +356,16 @@ h1 {
   );
 }
 
-
 @media screen and (max-width: 768px) {
   .card_style.selected tr:not(.winner):hover {
     /*  border: dotted gray 2px; */
     background-color: inherit;
   }
   .card_section {
-   /*  height: 100%; */
+    /*  height: 100%; */
   }
   .inner-card {
-    height:  340px;
+    height: 340px;
     width: 230px;
     background-color: rgb(44, 42, 66);
     border-radius: 0px;
@@ -310,11 +378,11 @@ h1 {
   }
   .card_section {
     display: grid;
-    flex-flow: unset; 
-    justify-content: space-around; 
+    flex-flow: unset;
+    justify-content: space-around;
     margin: 0px auto;
-    font-family: Georgia; 
-    position: relative; 
+    font-family: Georgia;
+    position: relative;
   }
   .card_style {
     height: 320px;
@@ -338,5 +406,19 @@ h1 {
   .logo-amdocs {
     margin-top: 8px;
     margin-left: 22px;
+  }
+
+  .top_data {
+    height: 36px;
+    font-size: 23px;
+  }
+
+  .top_data1 {
+    height: 36px;
+    font-size: 23px;
+  }
+
+  .fix-timer-space {
+    min-width: 93px;
   }
 }
