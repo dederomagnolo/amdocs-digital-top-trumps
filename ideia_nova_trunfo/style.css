@@ -7,7 +7,7 @@
   transition: all ease-in-out 0.3s;
   -o-object-fit: contain;
   object-fit: contain;
-  z-index: 9;
+  z-index: 99999;
   margin: 0 auto;
 }
 .window.window--maximized {
@@ -174,8 +174,15 @@
   left: 12px;
   top: 12px;
   z-index: -1;
+<<<<<<< HEAD
   box-shadow: 10px 10px 20px #00ff0052;
   border-radius: 10px;
+=======
+  /* box-shadow: 10px 10px 20px #00ff0052;
+  border-radius: 10px; */
+  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
+  animation: neon4 1.5s ease-in-out infinite alternate;
+>>>>>>> ea0f4d7f6babbabd9cef2f6f6bd3f7c1f18d0ff6
 }
 
 .front {
@@ -255,16 +262,16 @@ td {
 }
 
 tr.winner {
-  background-color: green;
+  background-color: rgba(0, 255, 0, 0.37);
 }
 
 tr.loser {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.37);
 }
 
 .card_style.selected tr:not(.winner):hover {
   /*  border: dotted gray 2px; */
-  background-color: Gold;
+  background-color: rgba(188, 200, 216, 0.37);
   cursor: pointer;
 }
 
@@ -497,6 +504,26 @@ h1 {
   display: none;
 }
 
+@keyframes neon4 {
+  from {
+    /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #b6ff00,
+      0 0 70px #b6ff00, 0 0 80px #b6ff00, 0 0 100px #b6ff00, 0 0 150px #b6ff00; */
+    box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #eb008bbf,
+      0 0 35px #eb008bbf, 0 0 40px #eb008bbf, 0 0 10px #eb008bbf,
+      0 0 75px #eb008bbf;
+    border-radius: 10px;
+  }
+  to {
+    /* text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #b6ff00,
+      0 0 35px #b6ff00, 0 0 40px #b6ff00, 0 0 50px #b6ff00, 0 0 75px #b6ff00;
+  } */
+    box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fcb316,
+      0 0 70px #fcb316, 0 0 80px #fcb316, 0 0 20px #fcb316, 0 0 30px #fcb316;
+
+    border-radius: 10px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .card_style.selected tr:not(.winner):hover {
     /*  border: dotted gray 2px; */
@@ -572,12 +599,12 @@ h1 {
     min-width: 93px;
   }
   .fix-score-space {
-    min-width: 126px;;
+    min-width: 126px;
   }
   .context img {
     display: none;
   }
   .fix-top-middle-image {
     display: inline;
-  }  
+  }
 }
