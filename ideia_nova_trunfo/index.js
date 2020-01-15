@@ -411,6 +411,7 @@ var javaDesc =
                   game.deal_pack(FullPack);
                   // Show the game - display the top cards in the DOM
                   game.show_game();
+                  prompt.close();
                 }
               }, 110);
             };
@@ -439,7 +440,7 @@ var javaDesc =
     close: function() {
       prompt.window.addClass("window--destroyed");
       prompt.window.removeClass("window--maximized window--minimized");
-      prompt.shortcut.removeClass("hidden");
+      // startprompt.shortcut.removeClass("hidden");
       prompt.input.val("");
     },
     open: function() {
@@ -448,7 +449,6 @@ var javaDesc =
       prompt.focus();
     }
   };
-
   $(document).ready(prompt.init);
 
 
