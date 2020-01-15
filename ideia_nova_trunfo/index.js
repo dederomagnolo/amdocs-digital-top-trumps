@@ -438,9 +438,11 @@ var javaDesc =
       prompt.focus();
     },
     close: function() {
+      $("prompt-inner").css("display" , "none");
+      prompt.input.attr("disabled", "disabled");
       prompt.window.addClass("window--destroyed");
       prompt.window.removeClass("window--maximized window--minimized");
-      // startprompt.shortcut.removeClass("hidden");
+      // prompt.shortcut.removeClass("hidden");
       prompt.input.val("");
     },
     open: function() {
