@@ -367,6 +367,10 @@ var javaDesc =
 
   var game = null; 
 
+  var teste;
+
+  console.log(teste);
+
   var prompt = {
     window: $(".window"),
     shortcut: $(".prompt-shortcut"),

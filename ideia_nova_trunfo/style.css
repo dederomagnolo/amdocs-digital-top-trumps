@@ -174,15 +174,8 @@
   left: 12px;
   top: 12px;
   z-index: -1;
-<<<<<<< HEAD
   box-shadow: 10px 10px 20px #00ff0052;
   border-radius: 10px;
-=======
-  /* box-shadow: 10px 10px 20px #00ff0052;
-  border-radius: 10px; */
-  -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
-  animation: neon4 1.5s ease-in-out infinite alternate;
->>>>>>> ea0f4d7f6babbabd9cef2f6f6bd3f7c1f18d0ff6
 }
 
 .front {
