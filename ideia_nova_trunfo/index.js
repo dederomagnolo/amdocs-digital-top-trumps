@@ -242,6 +242,81 @@ window.onload = function() {
   var FullPack = new createPack("Programming Languages");
   var game = new createGame();
 
+  var prompt = {
+    window: $(".window"),
+    shortcut: $(".prompt-shortcut"),
+    msg: $(".js-prompt-input"),
+    input: $(".js-prompt-input2"),
+    output: $(".js-prompt-output"),
+    underScoreInput: $("#user-input"),
+    
+    init: function() {
+      let text = "Type start to play!"
+      $(".js-minimize").click(prompt.minimize);
+      $(".js-maximize").click(prompt.maximize);
+      $(".js-close").click(prompt.close);
+      $(".js-open").click(prompt.open);
+      prompt.msg.val(text);
+      // prompt.input2.val("222");
+      prompt.input.focus()
+      prompt.input.blur(prompt.focus);
+      
+      prompt.input.keypress(function(e){
+        if(e.wich == 13 || e.keyCode == 13){
+          if(prompt.input.val() == 'start'){
+            let startMessage = "> starting |";
+            prompt.output.val(startMessage);
+            const starting = function () {
+              let count = 0;
+              const loading = setInterval(function() {
+                if(count < 40){
+                  count += 1;
+                  startMessage += '▓'; 
+                  prompt.underScoreInput.attr("class", "");
+                  prompt.output.val(startMessage);
+                } else {
+                  clearInterval(loading);
+                  console.log('Start Game');
+                }
+              }, 110);
+            };
+            
+            starting();
+            
+          }else{
+            prompt.msg.val("> '" + prompt.input.val() + "'is not a valid command. Type start to play");
+            prompt.input.val("");
+          }
+        }
+      });
+    },
+    focus: function() {
+      prompt.input.focus();
+    },
+    minimize: function() {
+      prompt.window.removeClass("window--maximized");
+      prompt.window.toggleClass("window--minimized");
+    },
+    maximize: function() {
+      prompt.window.removeClass("window--minimized");
+      prompt.window.toggleClass("window--maximized");
+      prompt.focus();
+    },
+    close: function() {
+      prompt.window.addClass("window--destroyed");
+      prompt.window.removeClass("window--maximized window--minimized");
+      prompt.shortcut.removeClass("hidden");
+      prompt.input.val("");
+    },
+    open: function() {
+      prompt.window.removeClass("window--destroyed");
+      prompt.shortcut.addClass("hidden");
+      prompt.focus();
+    }
+  };
+
+  $(document).ready(prompt.init);
+
   var pyDesc = "Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
   var reactDesc = "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
   var perlDesc = "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
