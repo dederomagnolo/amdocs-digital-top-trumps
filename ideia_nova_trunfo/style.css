@@ -79,7 +79,7 @@
   align-self: flex-end;
   margin-right: 5px;
   -webkit-animation: blink 1s steps(2, start) infinite;
-          animation: blink 1s steps(2, start) infinite;
+  animation: blink 1s steps(2, start) infinite;
 }
 .window-input {
   background-color: inherit;
@@ -96,7 +96,8 @@
 .i-prompt {
   width: 62px;
   height: 62px;
-  background: url("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/terminal-48.png") no-repeat center;
+  background: url("https://cdn4.iconfinder.com/data/icons/small-n-flat/24/terminal-48.png")
+    no-repeat center;
   background-color: rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   box-shadow: 0 3px 1px rgba(0, 0, 0, 0.25);
@@ -121,7 +122,6 @@
     visibility: hidden;
   }
 }
-
 
 .card_section {
   /* border: dotted gray 2px;
@@ -174,15 +174,10 @@
   left: 12px;
   top: 12px;
   z-index: -1;
-<<<<<<< HEAD
-  box-shadow: 10px 10px 20px #00ff0052;
-  border-radius: 10px;
-=======
   /* box-shadow: 10px 10px 20px #00ff0052;
   border-radius: 10px; */
   -webkit-animation: neon4 1.5s ease-in-out infinite alternate;
   animation: neon4 1.5s ease-in-out infinite alternate;
->>>>>>> ea0f4d7f6babbabd9cef2f6f6bd3f7c1f18d0ff6
 }
 
 .front {
@@ -587,7 +582,7 @@ h1 {
     height: 36px;
     font-size: 23px;
   }
-  
+
   .context {
     align-items: center;
     justify-content: center;
