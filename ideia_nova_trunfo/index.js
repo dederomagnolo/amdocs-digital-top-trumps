@@ -272,37 +272,98 @@ window.onload = function() {
   var FullPack = new createPack("Programming Languages");
   var game = new createGame();
 
+  var pyDesc =
+    "Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
+  var reactDesc =
+    "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
+  var perlDesc =
+    "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
+  var plsqlDesc =
+    "PL/SQL is Oracle Corporation's procedural extension for SQL and the Oracle relational database. ";
+  var htmlDesc =
+    "HTML is the standard markup language for documents designed to be displayed in a web browser.";
+  var nodeDesc =
+    "Node js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.";
+  var reduxDesc =
+    "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React to build UI";
+  var cDesc =
+    "C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion";
+  var cplusDesc =
+    "C ++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
+  var sparkDesc =
+    "Apache Spark is an open-source distributed general-purpose cluster-computing framework";
+  var cssDesc =
+    "Style sheet language used for describing the presentation of a document written in a markup language like HTML";
+  var awsDesc =
+    "AWS provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis";
+  var vbDesc =
+    "Visual Basic is a third-generation event-driven programming language from Microsoft for its Component Object Model (COM) programming";
+  var jsDesc =
+    "High-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.";
+  var groovyDesc =
+    "Apache Groovy is a Java-syntax-compatible object-oriented. It can be used as both a programming and a scripting language.";
+  var springDesc =
+    "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'.";
+  var junitDesc =
+    "JUnit is a unit testing framework for the Java programming language. Has been important in the development of test-driven development.";
+  var javaDesc =
+    "Java is a programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible.";
+
   // Add cards to the pack
-  FullPack.add_new_card("Node js", "./Images/nodejs.png", [2, 16, 9, 6], "1");
-  FullPack.add_new_card("React", "./Images/react.png", [1996, 3, 6, 4], "2");
-  FullPack.add_new_card("Java", "./Images/java.png", [1993, 5.1, 3, 6], "3");
-  FullPack.add_new_card("CSS 3", "./Images/css3.png", [2006, 2.1, 6, 5], "4");
-  FullPack.add_new_card("HTML", "./Images/html.png", [1991, 3.5, 6, 9]), "5";
-  FullPack.add_new_card("Sass", "./Images/nodejs.png", [2006, 3.4, 5, 2], "5");
   FullPack.add_new_card(
-    "BBC BASIC",
-    "./Images/nodejs.png",
-    [1981, 5.9, 2, 2],
-    "5"
+    "Python",
+    "./assets/python.png",
+    [9, 352, 3, 2],
+    pyDesc
   );
   FullPack.add_new_card(
-    "Matlab",
-    "./Images/nodejs.png",
-    [1984, 8.6, 5, 8],
-    "5"
+    "React",
+    "./assets/react.png",
+    [5, 45, 4, 2],
+    reactDesc
+  );
+  FullPack.add_new_card("Perl", "./assets/perl.png", [4, 7, 3, 1], perlDesc);
+  FullPack.add_new_card("PL/SQL", "./assets/plsql.png", [4, 38, 4, 1]),
+    plsqlDesc;
+  FullPack.add_new_card("HTML5", "./assets/html5.png", [3, 19, 3, 1], htmlDesc);
+  FullPack.add_new_card(
+    "Node Js",
+    "./assets/nodejs.png",
+    [3, 16, 3, 2],
+    nodeDesc
+  );
+  FullPack.add_new_card("Redux", "./assets/redux.png", [2, 8, 4, 2], reduxDesc);
+  FullPack.add_new_card("C", "./assets/c.png", [2, 18, 4, 1], cDesc);
+  FullPack.add_new_card("C++", "./assets/cplus.png", [2, 20, 1, 1], cplusDesc);
+  FullPack.add_new_card("Spark", "./assets/spark.png", [2, 2, 4, 2], sparkDesc);
+  FullPack.add_new_card("CSS3", "./assets/css3.png", [1, 12, 4, 1], cssDesc);
+  FullPack.add_new_card("AWS", "./assets/aws.png", [1, 14, 3, 1], awsDesc);
+  FullPack.add_new_card("VB", "./assets/vb.png", [1, 6, 4, 2], vbDesc);
+  FullPack.add_new_card(
+    "Javascript",
+    "./assets/javascript.png",
+    [1, 29, 3, 1],
+    jsDesc
   );
   FullPack.add_new_card(
-    "Scratch",
-    "./Images/nodejs.png",
-    [2002, 2.0, 1, 2],
-    "5"
+    "Groovy",
+    "./assets/groovy.png",
+    [6, 24, 2, 1],
+    groovyDesc
   );
   FullPack.add_new_card(
-    "JavaScript",
-    "./Images/nodejs.png",
-    [1995, 1.8, 7, 8],
-    "5"
+    "Spring Boot",
+    "./assets/springboot.png",
+    [6, 68, 4, 2],
+    springDesc
   );
+  FullPack.add_new_card(
+    "JUnit",
+    "./assets/junit.png",
+    [9, 17, 2, 1],
+    junitDesc
+  );
+  FullPack.add_new_card("Java", "./assets/java.png", [12, 104, 4, 2], javaDesc);
 
   // Shuffle and deal the cards to two players
   game.deal_pack(FullPack);
