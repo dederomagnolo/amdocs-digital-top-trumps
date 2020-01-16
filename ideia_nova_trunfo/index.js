@@ -326,7 +326,7 @@ window.onload = function() {
   var FullPack = new createPack("Programming Languages");
 
   // Add cards to the pack
-  /* FullPack.add_new_card(
+  FullPack.add_new_card(
     "Python",
     "./assets/python.png",
     [9, 352, 3, 2],
@@ -372,7 +372,7 @@ window.onload = function() {
     "./assets/springboot.png",
     [6, 68, 4, 2],
     springDesc
-  ); */
+  );
   FullPack.add_new_card(
     "JUnit",
     "./assets/junit.png",
@@ -382,11 +382,6 @@ window.onload = function() {
   FullPack.add_new_card("Java", "./assets/java.png", [12, 104, 4, 2], javaDesc);
 
   var game = null;
-
-  var teste;
-
-  console.log(teste);
-
   var prompt = {
     window: $(".window"),
     shortcut: $(".prompt-shortcut"),
@@ -396,20 +391,20 @@ window.onload = function() {
     underScoreInput: $("#user-input"),
 
     init: function() {
-      let text = "Type start to play!";
+      // let text = "Type start to play!"
       $(".js-minimize").click(prompt.minimize);
       $(".js-maximize").click(prompt.maximize);
       $(".js-close").click(prompt.close);
       $(".js-open").click(prompt.open);
-      prompt.msg.val(text);
-      // prompt.input2.val("222");
+      // prompt.msg.val(text);
       prompt.input.focus();
       prompt.input.blur(prompt.focus);
 
       prompt.input.keypress(function(e) {
         if (e.wich == 13 || e.keyCode == 13) {
-          if (prompt.input.val() == "start") {
+          if (prompt.input.val().toLowerCase() == "start") {
             let startMessage = "> starting |";
+            // prompt.output.addClass("starting");
             prompt.output.val(startMessage);
             const starting = function() {
               let count = 0;
