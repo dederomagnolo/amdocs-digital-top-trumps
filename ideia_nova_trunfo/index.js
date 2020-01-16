@@ -75,16 +75,6 @@ window.onload = function() {
             $("#table0").css("visibility", "hidden");
             $("#table1").css("visibility", "hidden");
           }, 2000);
-          setTimeout(() => {
-            $("#card_image").attr("src", "./assets/partyparrot.gif");
-            $("#card_name").text("W I N N E R");
-            $("#amdocs_logo").attr("width", "30");
-            $("#amdocs_logo").attr("height", "30");
-            $("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
-            $("#description-text").text(
-              "winner winner winner winner winner winner winner winner winner winner"
-            );
-          }, 1500);
         }
       }, 1000);
     };
@@ -104,6 +94,16 @@ window.onload = function() {
         $("#winner").text("You lose!");
       } else {
         $("#winner").text("Draw game!");
+        setTimeout(() => {
+          $("#card_image").attr("src", "./assets/partyparrot.gif");
+          $("#card_name").text("W I N N E R");
+          $("#amdocs_logo").attr("width", "30");
+          $("#amdocs_logo").attr("height", "30");
+          $("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
+          $("#description-text").text(
+            "winner winner winner winner winner winner winner winner winner winner"
+          );
+        }, 1500);
       }
 
       game.timer = 0;
