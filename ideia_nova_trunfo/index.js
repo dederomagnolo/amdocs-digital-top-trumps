@@ -88,12 +88,6 @@ window.onload = function() {
 
       if (game.player_pack[0].cards.length > game.player_pack[1].cards.length) {
         $("#winner").text("You win!");
-      } else if (
-        game.player_pack[0].cards.length < game.player_pack[1].cards.length
-      ) {
-        $("#winner").text("You lose!");
-      } else {
-        $("#winner").text("Draw game!");
         setTimeout(() => {
           $("#card_image").attr("src", "./assets/partyparrot.gif");
           $("#card_name").text("W I N N E R");
@@ -104,6 +98,12 @@ window.onload = function() {
             "winner winner winner winner winner winner winner winner winner winner"
           );
         }, 1500);
+      } else if (
+        game.player_pack[0].cards.length < game.player_pack[1].cards.length
+      ) {
+        $("#winner").text("You lose!");
+      } else {
+        $("#winner").text("Draw game!");
       }
 
       game.timer = 0;
@@ -326,7 +326,7 @@ window.onload = function() {
   var FullPack = new createPack("Programming Languages");
 
   // Add cards to the pack
-  FullPack.add_new_card(
+  /* FullPack.add_new_card(
     "Python",
     "./assets/python.png",
     [9, 352, 3, 2],
@@ -372,7 +372,7 @@ window.onload = function() {
     "./assets/springboot.png",
     [6, 68, 4, 2],
     springDesc
-  );
+  ); */
   FullPack.add_new_card(
     "JUnit",
     "./assets/junit.png",
