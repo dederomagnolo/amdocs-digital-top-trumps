@@ -68,12 +68,29 @@ window.onload = function() {
             $("#timer").text("Time: " + min + ":" + sec);
           }
         } else {
-          game.finishGame();
+          setTimeout(() => {
+            game.finishGame();
+          }, 3000);
+          setTimeout(() => {
+            $("#table0").css("visibility", "hidden");
+            $("#table1").css("visibility", "hidden");
+          }, 2000);
+          setTimeout(() => {
+            $("#card_image").attr("src", "./assets/partyparrot.gif");
+            $("#card_name").text("W I N N E R");
+            $("#amdocs_logo").attr("width", "30");
+            $("#amdocs_logo").attr("height", "30");
+            $("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
+            $("#description-text").text(
+              "winner winner winner winner winner winner winner winner winner winner"
+            );
+          }, 1500);
         }
       }, 1000);
     };
 
     this.finishGame = () => {
+      //bruno
       $(".gameover").css("visibility", "visible");
       if (game.timer > 0 && game.player_pack[0].cards.length > 0) {
         game.score += game.timer / 1000;
@@ -268,49 +285,48 @@ window.onload = function() {
     };
   }
 
-
-var pyDesc =
-"Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
-var reactDesc =
-  "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
-var perlDesc =
-  "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
-var plsqlDesc =
-  "PL/SQL is Oracle Corporation's procedural extension for SQL and the Oracle relational database. ";
-var htmlDesc =
-  "HTML is the standard markup language for documents designed to be displayed in a web browser.";
-var nodeDesc =
-  "Node js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.";
-var reduxDesc =
-  "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React to build UI";
-var cDesc =
-  "C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion";
-var cplusDesc =
-  "C ++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
-var sparkDesc =
-  "Apache Spark is an open-source distributed general-purpose cluster-computing framework";
-var cssDesc =
-  "Style sheet language used for describing the presentation of a document written in a markup language like HTML";
-var awsDesc =
-  "AWS provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis";
-var vbDesc =
-  "Visual Basic is a third-generation event-driven programming language from Microsoft for its Component Object Model (COM) programming";
-var jsDesc =
-  "High-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.";
-var groovyDesc =
-  "Apache Groovy is a Java-syntax-compatible object-oriented. It can be used as both a programming and a scripting language.";
-var springDesc =
-  "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'.";
-var junitDesc =
-  "JUnit is a unit testing framework for the Java programming language. Has been important in the development of test-driven development.";
-var javaDesc =
-  "Java is a programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible.";
+  var pyDesc =
+    "Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
+  var reactDesc =
+    "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
+  var perlDesc =
+    "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
+  var plsqlDesc =
+    "PL/SQL is Oracle Corporation's procedural extension for SQL and the Oracle relational database. ";
+  var htmlDesc =
+    "HTML is the standard markup language for documents designed to be displayed in a web browser.";
+  var nodeDesc =
+    "Node js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.";
+  var reduxDesc =
+    "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React to build UI";
+  var cDesc =
+    "C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion";
+  var cplusDesc =
+    "C ++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
+  var sparkDesc =
+    "Apache Spark is an open-source distributed general-purpose cluster-computing framework";
+  var cssDesc =
+    "Style sheet language used for describing the presentation of a document written in a markup language like HTML";
+  var awsDesc =
+    "AWS provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis";
+  var vbDesc =
+    "Visual Basic is a third-generation event-driven programming language from Microsoft for its Component Object Model (COM) programming";
+  var jsDesc =
+    "High-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.";
+  var groovyDesc =
+    "Apache Groovy is a Java-syntax-compatible object-oriented. It can be used as both a programming and a scripting language.";
+  var springDesc =
+    "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'.";
+  var junitDesc =
+    "JUnit is a unit testing framework for the Java programming language. Has been important in the development of test-driven development.";
+  var javaDesc =
+    "Java is a programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible.";
 
   // Create a new pack
   var FullPack = new createPack("Programming Languages");
 
   // Add cards to the pack
-  FullPack.add_new_card(
+  /* FullPack.add_new_card(
     "Python",
     "./assets/python.png",
     [9, 352, 3, 2],
@@ -356,7 +372,7 @@ var javaDesc =
     "./assets/springboot.png",
     [6, 68, 4, 2],
     springDesc
-  );
+  ); */
   FullPack.add_new_card(
     "JUnit",
     "./assets/junit.png",
@@ -365,7 +381,7 @@ var javaDesc =
   );
   FullPack.add_new_card("Java", "./assets/java.png", [12, 104, 4, 2], javaDesc);
 
-  var game = null; 
+  var game = null;
 
   var teste;
 
@@ -378,34 +394,34 @@ var javaDesc =
     input: $(".js-prompt-input2"),
     output: $(".js-prompt-output"),
     underScoreInput: $("#user-input"),
-    
+
     init: function() {
-      let text = "Type start to play!"
+      let text = "Type start to play!";
       $(".js-minimize").click(prompt.minimize);
       $(".js-maximize").click(prompt.maximize);
       $(".js-close").click(prompt.close);
       $(".js-open").click(prompt.open);
       prompt.msg.val(text);
       // prompt.input2.val("222");
-      prompt.input.focus()
+      prompt.input.focus();
       prompt.input.blur(prompt.focus);
-      
-      prompt.input.keypress(function(e){
-        if(e.wich == 13 || e.keyCode == 13){
-          if(prompt.input.val() == 'start'){
+
+      prompt.input.keypress(function(e) {
+        if (e.wich == 13 || e.keyCode == 13) {
+          if (prompt.input.val() == "start") {
             let startMessage = "> starting |";
             prompt.output.val(startMessage);
-            const starting = function () {
+            const starting = function() {
               let count = 0;
               const loading = setInterval(function() {
-                if(count < 40){
+                if (count < 40) {
                   count += 1;
-                  startMessage += '▓'; 
+                  startMessage += "▓";
                   prompt.underScoreInput.attr("class", "");
                   prompt.output.val(startMessage);
                 } else {
                   clearInterval(loading);
-                  console.log('Start Game');
+                  console.log("Start Game");
                   game = new createGame();
                   // Shuffle and deal the cards to two players
                   game.deal_pack(FullPack);
@@ -415,11 +431,14 @@ var javaDesc =
                 }
               }, 110);
             };
-            
+
             starting();
-            
-          }else{
-            prompt.msg.val("> '" + prompt.input.val() + "'is not a valid command. Type start to play");
+          } else {
+            prompt.msg.val(
+              "> '" +
+                prompt.input.val() +
+                "'is not a valid command. Type start to play"
+            );
             prompt.input.val("");
           }
         }
@@ -438,7 +457,7 @@ var javaDesc =
       prompt.focus();
     },
     close: function() {
-      $("prompt-inner").css("display" , "none");
+      $("prompt-inner").css("display", "none");
       prompt.input.attr("disabled", "disabled");
       prompt.window.addClass("window--destroyed");
       prompt.window.removeClass("window--maximized window--minimized");
@@ -452,7 +471,6 @@ var javaDesc =
     }
   };
   $(document).ready(prompt.init);
-
 
   // Callback function for the "next" button
   // Moves the top card to the bottow and shows the new top card.

@@ -104,8 +104,8 @@ body{
     width: 110px;
     height: 110px;
     animation-delay: 3s;
-    background-image: url("assets/char.gif");
-    background-size:     cover;                      /* <------ */
+    background-image: url("assets/pikachu.gif");
+    background-size:     100px 90px;                      /* <------ */
     background-repeat:   no-repeat;
     background-position: center center; 
 }
