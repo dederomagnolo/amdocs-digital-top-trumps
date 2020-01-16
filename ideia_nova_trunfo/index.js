@@ -366,11 +366,6 @@ var javaDesc =
   FullPack.add_new_card("Java", "./assets/java.png", [12, 104, 4, 2], javaDesc);
 
   var game = null; 
-
-  var teste;
-
-  console.log(teste);
-
   var prompt = {
     window: $(".window"),
     shortcut: $(".prompt-shortcut"),
@@ -386,13 +381,12 @@ var javaDesc =
       $(".js-close").click(prompt.close);
       $(".js-open").click(prompt.open);
       prompt.msg.val(text);
-      // prompt.input2.val("222");
       prompt.input.focus()
       prompt.input.blur(prompt.focus);
       
       prompt.input.keypress(function(e){
         if(e.wich == 13 || e.keyCode == 13){
-          if(prompt.input.val() == 'start'){
+          if(prompt.input.val().toLowerCase() == 'start'){
             let startMessage = "> starting |";
             prompt.output.val(startMessage);
             const starting = function () {
