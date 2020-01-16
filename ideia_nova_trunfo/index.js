@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
   // Constructor Function for a single card
   function createCard(name, image_src, data, id, description) {
     this.name = name;
@@ -14,7 +14,7 @@ window.onload = function() {
     this.cards = [];
 
     // Method to add a new card to the pack
-    this.add_new_card = function(name, image_src, data, description) {
+    this.add_new_card = function (name, image_src, data, description) {
       var num_cards = this.cards.length;
       var new_card = new createCard(
         name,
@@ -28,7 +28,7 @@ window.onload = function() {
 
     // method to shuffle the pack of cards
     // Fisher--Yates Algorithm -- https://bost.ocks.org/mike/shuffle/
-    this.shuffle = function() {
+    this.shuffle = function () {
       var m = this.cards.length;
       var temp, index;
       // While there remain elements to shuffle…
@@ -46,7 +46,7 @@ window.onload = function() {
     };
 
     // Method to put the top card to the bottom
-    this.top_to_bottom = function() {
+    this.top_to_bottom = function () {
       this.cards.push(this.cards[0]);
       // remove the first card
       this.cards.splice(0, 1);
@@ -56,7 +56,7 @@ window.onload = function() {
   // Create the Game Object which contains properties and methods for the state of the overall game
   function createGame() {
     this.startTimer = () => {
-      setInterval(function() {
+      setInterval(function () {
         if (game.timer > 0) {
           game.timer -= 1000;
           var min = parseInt(game.timer / 60000);
@@ -103,7 +103,7 @@ window.onload = function() {
     this.current_player = 0;
 
     // method to random deal a pack of cards into two piles
-    this.deal_pack = function(pack) {
+    this.deal_pack = function (pack) {
       // shuffle the input pack
       pack.shuffle();
       // empty the cards from each pack
@@ -121,7 +121,7 @@ window.onload = function() {
       this.current_player = 0;
     };
     // method gives top cards to the winning player
-    this.win = function(win_player) {
+    this.win = function (win_player) {
       var lose_player = 1 - win_player;
       var lost_card = this.player_pack[lose_player].cards[0];
 
@@ -144,7 +144,7 @@ window.onload = function() {
       //this.current_player = win_player; // change the current_player to be the winning player
     };
     // method shows the current state of the game
-    this.show_game = function() {
+    this.show_game = function () {
       // find the elements for the cards
       var $card_areas = $(".card_style");
 
@@ -172,7 +172,7 @@ window.onload = function() {
             .find(".num_cards")
             .text(this.player_pack[player].cards.length); // nuber of cards in this player pback
           //loop through each of the data area elements
-          $data_area.each(function() {
+          $data_area.each(function () {
             $(this).text(top_card.data[i]);
             i++;
           });
@@ -184,7 +184,7 @@ window.onload = function() {
       }
     };
     // method compares two data values for a particular index and returns the winning player
-    this.compare_data = function(i) {
+    this.compare_data = function (i) {
       // bruno
       var win_player;
       if (
@@ -200,7 +200,7 @@ window.onload = function() {
       return win_player;
     };
     // method for the transition animation putting cards to the bottom of the winning hand
-    this.transition_animation = function(winner) {
+    this.transition_animation = function (winner) {
       var shift_direction = "200px";
       if (this.current_player === 0) {
         shift_direction = "-200px";
@@ -213,55 +213,55 @@ window.onload = function() {
       var left_shift = pos_winner.left - pos_loser.left;
 
       // adds the CSS class "flipped" which causes the cards to transition to their flipped side.
-      setTimeout(function() {
+      setTimeout(function () {
         $(".card_style").addClass("flipped");
       }, 1);
 
-      setTimeout(function() {
+      setTimeout(function () {
         $(".front, .back")
           .animate({ left: shift_direction }, "slow") // moves
           .animate({ zIndex: "-5" }, "fast")
           .animate({ left: "0px" }, "fast")
-          .animate({ zIndex: "2" }, "fast", function() {
+          .animate({ zIndex: "2" }, "fast", function () {
             $(".front, .back").clearQueue(); // clear any queued animations
-            setTimeout(function() {
+            setTimeout(function () {
               $("tr").removeClass("winner loser");
             }, 1);
-            setTimeout(function() {
+            setTimeout(function () {
               game.show_game();
             }, 300);
           });
       }, 1);
     };
     // method for the animation comparing the two cards
-    this.compare_animation = function(i, win_player) {
+    this.compare_animation = function (i, win_player) {
       var winner = win_player;
       var loser = 1 - win_player;
       var $winner_card = $(".card_style").eq(winner);
       var $loser_card = $(".card_style").eq(loser);
 
-      setTimeout(function() {
+      setTimeout(function () {
         $winner_card
           .find("tr")
           .eq(i)
           .addClass("winner");
         //console.log($winner_card.find("tr").eq(i));
       }, 1);
-      setTimeout(function() {
+      setTimeout(function () {
         $loser_card
           .find("tr")
           .eq(i)
           .addClass("loser");
       }, 1);
 
-      setTimeout(function() {
+      setTimeout(function () {
         $(".card_style").removeClass("flipped selected");
       }, 1);
-      setTimeout(function() {
+      setTimeout(function () {
         $winner_card.addClass("selected");
       }, 1);
-      setTimeout(function() {
-        $(".front").one("transitionend", function() {
+      setTimeout(function () {
+        $(".front").one("transitionend", function () {
           game.transition_animation(win_player);
         });
       }, 1);
@@ -269,42 +269,42 @@ window.onload = function() {
   }
 
 
-var pyDesc =
-"Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
-var reactDesc =
-  "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
-var perlDesc =
-  "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
-var plsqlDesc =
-  "PL/SQL is Oracle Corporation's procedural extension for SQL and the Oracle relational database. ";
-var htmlDesc =
-  "HTML is the standard markup language for documents designed to be displayed in a web browser.";
-var nodeDesc =
-  "Node js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.";
-var reduxDesc =
-  "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React to build UI";
-var cDesc =
-  "C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion";
-var cplusDesc =
-  "C ++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
-var sparkDesc =
-  "Apache Spark is an open-source distributed general-purpose cluster-computing framework";
-var cssDesc =
-  "Style sheet language used for describing the presentation of a document written in a markup language like HTML";
-var awsDesc =
-  "AWS provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis";
-var vbDesc =
-  "Visual Basic is a third-generation event-driven programming language from Microsoft for its Component Object Model (COM) programming";
-var jsDesc =
-  "High-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.";
-var groovyDesc =
-  "Apache Groovy is a Java-syntax-compatible object-oriented. It can be used as both a programming and a scripting language.";
-var springDesc =
-  "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'.";
-var junitDesc =
-  "JUnit is a unit testing framework for the Java programming language. Has been important in the development of test-driven development.";
-var javaDesc =
-  "Java is a programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible.";
+  var pyDesc =
+    "Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
+  var reactDesc =
+    "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
+  var perlDesc =
+    "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
+  var plsqlDesc =
+    "PL/SQL is Oracle Corporation's procedural extension for SQL and the Oracle relational database. ";
+  var htmlDesc =
+    "HTML is the standard markup language for documents designed to be displayed in a web browser.";
+  var nodeDesc =
+    "Node js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.";
+  var reduxDesc =
+    "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React to build UI";
+  var cDesc =
+    "C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion";
+  var cplusDesc =
+    "C ++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
+  var sparkDesc =
+    "Apache Spark is an open-source distributed general-purpose cluster-computing framework";
+  var cssDesc =
+    "Style sheet language used for describing the presentation of a document written in a markup language like HTML";
+  var awsDesc =
+    "AWS provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis";
+  var vbDesc =
+    "Visual Basic is a third-generation event-driven programming language from Microsoft for its Component Object Model (COM) programming";
+  var jsDesc =
+    "High-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.";
+  var groovyDesc =
+    "Apache Groovy is a Java-syntax-compatible object-oriented. It can be used as both a programming and a scripting language.";
+  var springDesc =
+    "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'.";
+  var junitDesc =
+    "JUnit is a unit testing framework for the Java programming language. Has been important in the development of test-driven development.";
+  var javaDesc =
+    "Java is a programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible.";
 
   // Create a new pack
   var FullPack = new createPack("Programming Languages");
@@ -365,7 +365,7 @@ var javaDesc =
   );
   FullPack.add_new_card("Java", "./assets/java.png", [12, 104, 4, 2], javaDesc);
 
-  var game = null; 
+  var game = null;
   var prompt = {
     window: $(".window"),
     shortcut: $(".prompt-shortcut"),
@@ -373,28 +373,29 @@ var javaDesc =
     input: $(".js-prompt-input2"),
     output: $(".js-prompt-output"),
     underScoreInput: $("#user-input"),
-    
-    init: function() {
-      let text = "Type start to play!"
+
+    init: function () {
+      // let text = "Type start to play!"
       $(".js-minimize").click(prompt.minimize);
       $(".js-maximize").click(prompt.maximize);
       $(".js-close").click(prompt.close);
       $(".js-open").click(prompt.open);
-      prompt.msg.val(text);
+      // prompt.msg.val(text);
       prompt.input.focus()
       prompt.input.blur(prompt.focus);
-      
-      prompt.input.keypress(function(e){
-        if(e.wich == 13 || e.keyCode == 13){
-          if(prompt.input.val().toLowerCase() == 'start'){
+
+      prompt.input.keypress(function (e) {
+        if (e.wich == 13 || e.keyCode == 13) {
+          if (prompt.input.val().toLowerCase() == 'start') {
             let startMessage = "> starting |";
+            // prompt.output.addClass("starting");
             prompt.output.val(startMessage);
             const starting = function () {
               let count = 0;
-              const loading = setInterval(function() {
-                if(count < 40){
+              const loading = setInterval(function () {
+                if (count < 40) {
                   count += 1;
-                  startMessage += '▓'; 
+                  startMessage += '▓';
                   prompt.underScoreInput.attr("class", "");
                   prompt.output.val(startMessage);
                 } else {
@@ -409,37 +410,37 @@ var javaDesc =
                 }
               }, 110);
             };
-            
+
             starting();
-            
-          }else{
+
+          } else {
             prompt.msg.val("> '" + prompt.input.val() + "'is not a valid command. Type start to play");
             prompt.input.val("");
           }
         }
       });
     },
-    focus: function() {
+    focus: function () {
       prompt.input.focus();
     },
-    minimize: function() {
+    minimize: function () {
       prompt.window.removeClass("window--maximized");
       prompt.window.toggleClass("window--minimized");
     },
-    maximize: function() {
+    maximize: function () {
       prompt.window.removeClass("window--minimized");
       prompt.window.toggleClass("window--maximized");
       prompt.focus();
     },
-    close: function() {
-      $("prompt-inner").css("display" , "none");
+    close: function () {
+      $("prompt-inner").css("display", "none");
       prompt.input.attr("disabled", "disabled");
       prompt.window.addClass("window--destroyed");
       prompt.window.removeClass("window--maximized window--minimized");
       // prompt.shortcut.removeClass("hidden");
       prompt.input.val("");
     },
-    open: function() {
+    open: function () {
       prompt.window.removeClass("window--destroyed");
       prompt.shortcut.addClass("hidden");
       prompt.focus();
@@ -450,7 +451,7 @@ var javaDesc =
 
   // Callback function for the "next" button
   // Moves the top card to the bottow and shows the new top card.
-  $("#button_next").on("click", function() {
+  $("#button_next").on("click", function () {
     game.player_pack[0].top_to_bottom();
     game.player_pack[1].top_to_bottom();
     game.show_game();
@@ -458,7 +459,7 @@ var javaDesc =
 
   // Callback function for the "shuffle" button
   // Shuffles (randomly permutes) the order of the card.
-  $("#button_shuffle").on("click", function() {
+  $("#button_shuffle").on("click", function () {
     game.score = 0;
     $("#score").text("Score: " + game.score);
     game.deal_pack(FullPack);
@@ -467,7 +468,7 @@ var javaDesc =
   });
 
   // Triggers the event that the clicked player wins.
-  $(".button_win").on("click", function() {
+  $(".button_win").on("click", function () {
     var player = $(this).data("player"); // determine the player
     game.win(player);
     game.compare_animation(player);
@@ -475,7 +476,7 @@ var javaDesc =
   });
 
   // Callback for selecting a answer
-  $(".card_style").on("click", "tr", function() {
+  $(".card_style").on("click", "tr", function () {
     // console.log($(this).parents()[0].rows);
     if ($(this).parents(".selected").length === 0) {
       return;
@@ -488,7 +489,7 @@ var javaDesc =
   });
 
   // Callback for transition
-  $(".button_transition").on("click", function() {
+  $(".button_transition").on("click", function () {
     game.compare_animation(2);
   });
 
