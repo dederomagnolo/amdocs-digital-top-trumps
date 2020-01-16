@@ -326,7 +326,7 @@ window.onload = function() {
   var FullPack = new createPack("Programming Languages");
 
   // Add cards to the pack
-  /* FullPack.add_new_card(
+  FullPack.add_new_card(
     "Python",
     "./assets/python.png",
     [9, 352, 3, 2],
@@ -372,7 +372,7 @@ window.onload = function() {
     "./assets/springboot.png",
     [6, 68, 4, 2],
     springDesc
-  ); */
+  );
   FullPack.add_new_card(
     "JUnit",
     "./assets/junit.png",
