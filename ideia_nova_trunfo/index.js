@@ -205,10 +205,8 @@ window.onload = function() {
       // bruno
       var win_player;
       if (
-        this.player_pack[0].cards[0].data[i] >
-          this.player_pack[1].cards[0].data[i] ||
-        this.player_pack[0].cards[0].data[i] ==
-          this.player_pack[1].cards[0].data[i]
+        this.player_pack[0].cards[0].data[i].point >=
+        this.player_pack[1].cards[0].data[i].point
       ) {
         win_player = 0; // First player wins
       } else {
