@@ -102,8 +102,26 @@ window.onload = function() {
         game.player_pack[0].cards.length < game.player_pack[1].cards.length
       ) {
         $("#winner").text("You lose!");
+        setTimeout(() => {
+          $("#card_image").attr("src", "./assets/partyparrot.gif");
+          $("#card_name").text("Y O U L O S E");
+          //$("#amdocs_logo").attr("width", "30");
+          //$("#amdocs_logo").attr("height", "30");
+          //$("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
+          $("#description-text").text(":(");
+        }, 1500);
       } else {
         $("#winner").text("Draw game!");
+        setTimeout(() => {
+          $("#card_image").attr("src", "./assets/partyparrot.gif");
+          $("#card_name").text("D R A W");
+          //$("#amdocs_logo").attr("width", "30");
+          //$("#amdocs_logo").attr("height", "30");
+          //$("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
+          $("#description-text").text(
+            "draw draw draw draw draw draw draw draw draw draw"
+          );
+        }, 1500);
       }
 
       game.timer = 0;
