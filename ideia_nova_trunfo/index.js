@@ -103,7 +103,7 @@ window.onload = function() {
       ) {
         $("#winner").text("You lose!");
         setTimeout(() => {
-          $("#card_image").attr("src", "./assets/partyparrot.gif");
+          $("#card_image").attr("src", "./assets/sad_image.gif");
           $("#card_name").text("Y O U L O S E");
           //$("#amdocs_logo").attr("width", "30");
           //$("#amdocs_logo").attr("height", "30");
