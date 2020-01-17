@@ -190,7 +190,7 @@ window.onload = function() {
             .text(this.player_pack[player].cards.length); // nuber of cards in this player pback
           //loop through each of the data area elements
           $data_area.each(function() {
-            $(this).text(top_card.data[i]);
+            $(this).text(top_card.data[i].label);
             i++;
           });
 
@@ -214,8 +214,8 @@ window.onload = function() {
       } else {
         win_player = 1; // Second player wins
       }
-      console.log(this.player_pack[0].cards[0].data[i]);
-      console.log(this.player_pack[1].cards[0].data[i]);
+      console.log(this.player_pack[0].cards[0].data[i].point);
+      console.log(this.player_pack[1].cards[0].data[i].point);
       return win_player;
     };
     // method for the transition animation putting cards to the bottom of the winning hand
@@ -287,42 +287,24 @@ window.onload = function() {
     };
   }
 
-  var pyDesc =
-    "Interpred high-level programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.";
-  var reactDesc =
-    "React is a JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies.";
-  var perlDesc =
-    "Perl is a family of two high-level, general-purpose, interpreted, dynamic programming languages.";
-  var plsqlDesc =
-    "PL/SQL is Oracle Corporation's procedural extension for SQL and the Oracle relational database. ";
-  var htmlDesc =
-    "HTML is the standard markup language for documents designed to be displayed in a web browser.";
-  var nodeDesc =
-    "Node js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser.";
-  var reduxDesc =
-    "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React to build UI";
-  var cDesc =
-    "C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion";
-  var cplusDesc =
-    "C ++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.";
-  var sparkDesc =
-    "Apache Spark is an open-source distributed general-purpose cluster-computing framework";
-  var cssDesc =
-    "Style sheet language used for describing the presentation of a document written in a markup language like HTML";
-  var awsDesc =
-    "AWS provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis";
-  var vbDesc =
-    "Visual Basic is a third-generation event-driven programming language from Microsoft for its Component Object Model (COM) programming";
-  var jsDesc =
-    "High-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.";
-  var groovyDesc =
-    "Apache Groovy is a Java-syntax-compatible object-oriented. It can be used as both a programming and a scripting language.";
-  var springDesc =
-    "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can 'just run'.";
-  var junitDesc =
-    "JUnit is a unit testing framework for the Java programming language. Has been important in the development of test-driven development.";
-  var javaDesc =
-    "Java is a programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible.";
+  var pyDesc = "AD DTO";
+  var reactDesc = "AD Digital";
+  var perlDesc = "AD Ensemble";
+  var plsqlDesc = "AD Ensemble";
+  var htmlDesc = "AD Digital";
+  var nodeDesc = "AD DTO";
+  var reduxDesc = "AD Digital";
+  var cDesc = "AD Ensemble";
+  var cplusDesc = "AD Ensemble";
+  var sparkDesc = "SmartOps";
+  var cssDesc = "AD Digital";
+  var awsDesc = "AD Microservices";
+  var vbDesc = "AQE";
+  var jsDesc = "AD OSS";
+  var groovyDesc = "AQE";
+  var springDesc = "AD OMCC";
+  var junitDesc = "AD OSS";
+  var javaDesc = "AD RMCC";
 
   // Create a new pack
   var FullPack = new createPack("Programming Languages");
@@ -331,57 +313,201 @@ window.onload = function() {
   FullPack.add_new_card(
     "Python",
     "./assets/python.png",
-    [9, 352, 3, 2],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 352, label: "352" },
+      { point: 3, label: "Adopt" },
+      { point: 2, label: "Primary" }
+    ],
     pyDesc
   );
   FullPack.add_new_card(
     "React",
     "./assets/react.png",
-    [5, 45, 4, 2],
+    [
+      { point: 3, label: "⭐⭐⭐" },
+      { point: 19, label: "19" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
     reactDesc
   );
-  FullPack.add_new_card("Perl", "./assets/perl.png", [4, 7, 3, 1], perlDesc);
-  FullPack.add_new_card("PL/SQL", "./assets/plsql.png", [4, 38, 4, 1]),
-    plsqlDesc;
-  FullPack.add_new_card("HTML5", "./assets/html5.png", [3, 19, 3, 1], htmlDesc);
+  FullPack.add_new_card(
+    "Perl",
+    "./assets/perl.png",
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 7, label: "7" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
+    perlDesc
+  );
+  FullPack.add_new_card(
+    "PL/SQL",
+    "./assets/plsql.png",
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 38, label: "38" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
+    plsqlDesc
+  );
+  FullPack.add_new_card(
+    "HTML5",
+    "./assets/html5.png",
+    [
+      { point: 3, label: "⭐⭐⭐" },
+      { point: 18, label: "18" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
+    htmlDesc
+  );
   FullPack.add_new_card(
     "Node Js",
     "./assets/nodejs.png",
-    [3, 16, 3, 2],
+    [
+      { point: 3, label: "⭐⭐⭐" },
+      { point: 20, label: "20" },
+      { point: 1, label: "Hold" },
+      { point: 1, label: "Common" }
+    ],
     nodeDesc
   );
-  FullPack.add_new_card("Redux", "./assets/redux.png", [2, 8, 4, 2], reduxDesc);
-  FullPack.add_new_card("C", "./assets/c.png", [2, 18, 4, 1], cDesc);
-  FullPack.add_new_card("C++", "./assets/cplus.png", [2, 20, 1, 1], cplusDesc);
-  FullPack.add_new_card("Spark", "./assets/spark.png", [2, 2, 4, 2], sparkDesc);
-  FullPack.add_new_card("CSS3", "./assets/css3.png", [1, 12, 4, 1], cssDesc);
-  FullPack.add_new_card("AWS", "./assets/aws.png", [1, 14, 3, 1], awsDesc);
-  FullPack.add_new_card("VB", "./assets/vb.png", [1, 6, 4, 2], vbDesc);
+  FullPack.add_new_card(
+    "Redux",
+    "./assets/redux.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 1, label: "1" },
+      { point: 3, label: "Adopt" },
+      { point: 2, label: "Primary" }
+    ],
+    reduxDesc
+  );
+  FullPack.add_new_card(
+    "C",
+    "./assets/c.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 2, label: "2" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    cDesc
+  );
+  FullPack.add_new_card(
+    "C++",
+    "./assets/cplus.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 12, label: "12" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
+    cplusDesc
+  );
+  FullPack.add_new_card(
+    "Spark",
+    "./assets/spark.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 6, label: "6" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    sparkDesc
+  );
+  FullPack.add_new_card(
+    "CSS3",
+    "./assets/css3.png",
+    [
+      { point: 1, label: "⭐" },
+      { point: 29, label: "29" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
+    cssDesc
+  );
+  FullPack.add_new_card(
+    "AWS",
+    "./assets/aws.png",
+    [
+      { point: 1, label: "⭐" },
+      { point: 24, label: "24" },
+      { point: 2, label: "Assess/Trial" },
+      { point: 1, label: "Common" }
+    ],
+    awsDesc
+  );
+  FullPack.add_new_card(
+    "VB",
+    "./assets/vb.png",
+    [
+      { point: 1, label: "⭐" },
+      { point: 68, label: "68" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    vbDesc
+  );
   FullPack.add_new_card(
     "Javascript",
     "./assets/javascript.png",
-    [1, 29, 3, 1],
+    [
+      { point: 1, label: "⭐" },
+      { point: 17, label: "17" },
+      { point: 2, label: "Assess/Trial" },
+      { point: 1, label: "Common" }
+    ],
     jsDesc
   );
   FullPack.add_new_card(
     "Groovy",
     "./assets/groovy.png",
-    [6, 24, 2, 1],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 7, label: "7" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
     groovyDesc
   );
   FullPack.add_new_card(
     "Spring Boot",
     "./assets/springboot.png",
-    [6, 68, 4, 2],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 38, label: "38" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
     springDesc
   );
   FullPack.add_new_card(
     "JUnit",
     "./assets/junit.png",
-    [9, 17, 2, 1],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 45, label: "45" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
     junitDesc
   );
-  FullPack.add_new_card("Java", "./assets/java.png", [12, 104, 4, 2], javaDesc);
+  FullPack.add_new_card(
+    "Java",
+    "./assets/java.png",
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 104, label: "104" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    javaDesc
+  );
 
   var game = null;
   var prompt = {
