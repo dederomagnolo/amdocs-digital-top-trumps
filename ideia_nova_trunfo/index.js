@@ -153,7 +153,11 @@ window.onload = function() {
       if (win_player == 0) {
         this.score += 30;
       } else if (win_player == 1) {
-        this.score -= 30;
+        if (this.score - 30 < 0) {
+          this.score = 0;
+        } else {
+          this.score -= 30;
+        }
       }
 
       $("#score").text("Score: " + this.score);
@@ -205,7 +209,7 @@ window.onload = function() {
       // bruno
       var win_player;
       if (
-        this.player_pack[0].cards[0].data[i].point >=
+        this.player_pack[0].cards[0].data[i].point >
         this.player_pack[1].cards[0].data[i].point
       ) {
         win_player = 0; // First player wins
