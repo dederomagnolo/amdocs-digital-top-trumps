@@ -13,8 +13,8 @@ body{
 
 .context {
     width: 100%;
-    position: absolute;
-    top: 35vh;
+    position: fixed;
+    margin-top: 20%;
     /*z-index: 9999999;*/
 }
 

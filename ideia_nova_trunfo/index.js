@@ -102,8 +102,26 @@ window.onload = function() {
         game.player_pack[0].cards.length < game.player_pack[1].cards.length
       ) {
         $("#winner").text("You lose!");
+        setTimeout(() => {
+          $("#card_image").attr("src", "./assets/sad_image.gif");
+          $("#card_name").text("Y O U L O S E");
+          //$("#amdocs_logo").attr("width", "30");
+          //$("#amdocs_logo").attr("height", "30");
+          //$("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
+          $("#description-text").text(":(");
+        }, 1500);
       } else {
         $("#winner").text("Draw game!");
+        setTimeout(() => {
+          $("#card_image").attr("src", "./assets/partyparrot.gif");
+          $("#card_name").text("D R A W");
+          //$("#amdocs_logo").attr("width", "30");
+          //$("#amdocs_logo").attr("height", "30");
+          //$("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
+          $("#description-text").text(
+            "draw draw draw draw draw draw draw draw draw draw"
+          );
+        }, 1500);
       }
 
       game.timer = 0;
@@ -153,7 +171,11 @@ window.onload = function() {
       if (win_player == 0) {
         this.score += 30;
       } else if (win_player == 1) {
-        this.score -= 30;
+        if (this.score - 30 < 0) {
+          this.score = 0;
+        } else {
+          this.score -= 30;
+        }
       }
 
       $("#score").text("Score: " + this.score);
@@ -287,7 +309,7 @@ window.onload = function() {
 
   var pyDesc = "AD DTO";
   var reactDesc = "AD Digital";
-  var perlDesc ="AD Ensemble";
+  var perlDesc = "AD Ensemble";
   var plsqlDesc = "AD Ensemble";
   var htmlDesc = "AD Digital";
   var nodeDesc = "AD DTO";
@@ -313,53 +335,188 @@ window.onload = function() {
   FullPack.add_new_card(
     "Python",
     "./assets/python.png",
-    [{point:4,label:"⭐⭐⭐⭐"},{point:352,label:"352"},{point:3,label:"Adopt"},{point:2,label:"Primary"}  ],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 352, label: "352" },
+      { point: 3, label: "Adopt" },
+      { point: 2, label: "Primary" }
+    ],
     pyDesc
   );
   FullPack.add_new_card(
     "React",
     "./assets/react.png",
-    [{point:3,label:"⭐⭐⭐"},{point:19,label:"19"},{point:3,label:"Adopt"},{point:1,label:"Common"}  ],
+    [
+      { point: 3, label: "⭐⭐⭐" },
+      { point: 19, label: "19" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
     reactDesc
   );
-  FullPack.add_new_card("Perl", "./assets/perl.png", [{point: 4, label: "⭐⭐⭐⭐"}, {point: 7, label: "7"}, {point: 3, label: "Adopt"}, {point: 1, label: "Common"}], perlDesc);
-  FullPack.add_new_card("PL/SQL", "./assets/plsql.png", [{point: 4, label: "⭐⭐⭐⭐"}, {point: 38, label: "38"}, {point: 4, label: "Core"}, {point: 1, label: "Common"}], plsqlDesc);
-  FullPack.add_new_card("HTML5", "./assets/html5.png", [{point:3,label:"⭐⭐⭐"},{point:18,label:"18"},{point:4,label:"Core"},{point:1,label:"Common"}], htmlDesc);
+  FullPack.add_new_card(
+    "Perl",
+    "./assets/perl.png",
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 7, label: "7" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
+    perlDesc
+  );
+  FullPack.add_new_card(
+    "PL/SQL",
+    "./assets/plsql.png",
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 38, label: "38" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
+    plsqlDesc
+  );
+  FullPack.add_new_card(
+    "HTML5",
+    "./assets/html5.png",
+    [
+      { point: 3, label: "⭐⭐⭐" },
+      { point: 18, label: "18" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
+    htmlDesc
+  );
   FullPack.add_new_card(
     "Node Js",
     "./assets/nodejs.png",
-    [{point:3,label:"⭐⭐⭐"},{point:20,label:"20"},{point:1,label:"Hold"},{point:1,label:"Common"}],
+    [
+      { point: 3, label: "⭐⭐⭐" },
+      { point: 20, label: "20" },
+      { point: 1, label: "Hold" },
+      { point: 1, label: "Common" }
+    ],
     nodeDesc
   );
-  FullPack.add_new_card("Redux", "./assets/redux.png", [{point:2,label:"⭐⭐"},{point:1,label:"1"},{point:3,label:"Adopt"},{point:2,label:"Primary"}], reduxDesc);
-  FullPack.add_new_card("C", "./assets/c.png", [{point:2,label:"⭐⭐"},{point:2,label:"2"},{point:4,label:"Core"},{point:2,label:"Primary"}], cDesc);
-  FullPack.add_new_card("C++", "./assets/cplus.png", [{point:2,label:"⭐⭐"},{point:12,label:"12"},{point:4,label:"Core"},{point:1,label:"Common"}], cplusDesc);
-  FullPack.add_new_card("Spark", "./assets/spark.png", [{point:2,label:"⭐⭐"},{point:6,label:"6"},{point:4,label:"Core"},{point:2,label:"Primary"}], sparkDesc);
-  FullPack.add_new_card("CSS3", "./assets/css3.png", [{point:1,label:"⭐"},{point:29,label:"29"},{point:3,label:"Adopt"},{point:1,label:"Common"}], cssDesc);
-  FullPack.add_new_card("AWS", "./assets/aws.png", [{point:1,label:"⭐"},{point:24,label:"24"},{point:2,label:"Assess/Trial"},{point:1,label:"Common"}], awsDesc);
-  FullPack.add_new_card("VB", "./assets/vb.png", [{point:1,label:"⭐"},{point:68,label:"68"},{point:4,label:"Core"},{point:2,label:"Primary"}], vbDesc);
+  FullPack.add_new_card(
+    "Redux",
+    "./assets/redux.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 1, label: "1" },
+      { point: 3, label: "Adopt" },
+      { point: 2, label: "Primary" }
+    ],
+    reduxDesc
+  );
+  FullPack.add_new_card(
+    "C",
+    "./assets/c.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 2, label: "2" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    cDesc
+  );
+  FullPack.add_new_card(
+    "C++",
+    "./assets/cplus.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 12, label: "12" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
+    cplusDesc
+  );
+  FullPack.add_new_card(
+    "Spark",
+    "./assets/spark.png",
+    [
+      { point: 2, label: "⭐⭐" },
+      { point: 6, label: "6" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    sparkDesc
+  );
+  FullPack.add_new_card(
+    "CSS3",
+    "./assets/css3.png",
+    [
+      { point: 1, label: "⭐" },
+      { point: 29, label: "29" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
+    cssDesc
+  );
+  FullPack.add_new_card(
+    "AWS",
+    "./assets/aws.png",
+    [
+      { point: 1, label: "⭐" },
+      { point: 24, label: "24" },
+      { point: 2, label: "Assess/Trial" },
+      { point: 1, label: "Common" }
+    ],
+    awsDesc
+  );
+  FullPack.add_new_card(
+    "VB",
+    "./assets/vb.png",
+    [
+      { point: 1, label: "⭐" },
+      { point: 68, label: "68" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
+    vbDesc
+  );
   FullPack.add_new_card(
     "Javascript",
     "./assets/javascript.png",
-    [{point:1,label:"⭐"},{point:17,label:"17"},{point:2,label:"Assess/Trial"},{point:1,label:"Common"} ],
+    [
+      { point: 1, label: "⭐" },
+      { point: 17, label: "17" },
+      { point: 2, label: "Assess/Trial" },
+      { point: 1, label: "Common" }
+    ],
     jsDesc
   );
   FullPack.add_new_card(
     "Groovy",
     "./assets/groovy.png",
-    [{point:4,label:"⭐⭐⭐⭐"},{point:7,label:"7"},{point:3,label:"Adopt"},{point:1,label:"Common"}  ],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 7, label: "7" },
+      { point: 3, label: "Adopt" },
+      { point: 1, label: "Common" }
+    ],
     groovyDesc
   );
   FullPack.add_new_card(
     "Spring Boot",
     "./assets/springboot.png",
-    [{point:4,label:"⭐⭐⭐⭐"},{point:38,label:"38"},{point:4,label:"Core"},{point:1,label:"Common"}  ],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 38, label: "38" },
+      { point: 4, label: "Core" },
+      { point: 1, label: "Common" }
+    ],
     springDesc
   );
   FullPack.add_new_card(
     "JUnit",
     "./assets/junit.png",
-    [{point:4,label:"⭐⭐⭐⭐"},{point:45,label:"45"},{point:4,label:"Core"},{point:2,label:"Primary"}],
+    [
+      { point: 4, label: "⭐⭐⭐⭐" },
+      { point: 45, label: "45" },
+      { point: 4, label: "Core" },
+      { point: 2, label: "Primary" }
+    ],
     junitDesc
   );
   FullPack.add_new_card("Java", "./assets/java.png", [{point:4,label:"⭐⭐⭐⭐"},{point:104,label:"104"},{point:4,label:"Core"},{point:2,label:"Primary"}], javaDesc);
