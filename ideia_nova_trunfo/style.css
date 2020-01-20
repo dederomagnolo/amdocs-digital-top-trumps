@@ -462,6 +462,7 @@ html {
 
 .card_name {
   background-color: rgb(188, 200, 216);
+  font-family: 'Bahnschrift';
   height: 50px;
   width: inherit;
   display: flex;
