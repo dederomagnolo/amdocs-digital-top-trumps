@@ -14,7 +14,7 @@ body{
 .context {
     width: 100%;
     position: fixed;
-    margin-top: 20%;
+    margin-top: 10%;
     /*z-index: 9999999;*/
 }
 
@@ -63,6 +63,10 @@ body{
     width: 80px;
     height: 80px;
     animation-delay: 0s; 
+    background-image: url("assets/tech_radar.png");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
 }
 
 
@@ -86,7 +90,7 @@ body{
     width: 60px;
     height: 60px;
     animation-delay: 0s;
-    animation-duration: 18s;
+    animation-duration: 18s; 
 }
 
 .circles li:nth-child(5){

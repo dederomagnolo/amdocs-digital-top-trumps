@@ -1,3 +1,14 @@
+.top-trumps-title {
+  font-family: 'Press Start 2P';
+  -o-object-fit: contain;
+  object-fit: contain;
+  width: 100%;
+  font-size: 30px;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .window {
   width: 450px;
   height: 360px;
@@ -311,7 +322,7 @@ div.gameover {
   color: white;
   background-color: rgba(255, 255, 255, 0.39);
   position: absolute;
-  top: 30%;
+  top: 60%;
   left: 0;
   width: 100%;
   text-align: center;
