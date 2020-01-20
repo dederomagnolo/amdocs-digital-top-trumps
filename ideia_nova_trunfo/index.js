@@ -82,9 +82,6 @@ window.onload = function() {
     this.finishGame = () => {
       //bruno
       $(".gameover").css("visibility", "visible");
-      if (game.timer > 0 && game.player_pack[0].cards.length > 0) {
-        game.score += game.timer / 1000;
-      }
 
       if (game.player_pack[0].cards.length > game.player_pack[1].cards.length) {
         $("#winner").text("You win!");
@@ -128,7 +125,7 @@ window.onload = function() {
       $("#finish_score").text("Score: " + game.score);
     };
 
-    this.score = 0;
+    this.score = 50;
     this.timer = 180000;
     //this.timer = 800;
     this.startTimer();
