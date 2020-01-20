@@ -308,7 +308,7 @@ tr.loser {
 }
 
 div.gameover {
-  color: black;
+  color: white;
   background-color: rgba(255, 255, 255, 0.39);
   position: absolute;
   top: 30%;
