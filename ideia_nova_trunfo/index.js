@@ -169,12 +169,12 @@ window.onload = function() {
       }
 
       if (win_player == 0) {
-        this.score += 30;
+        this.score += 5;
       } else if (win_player == 1) {
-        if (this.score - 30 < 0) {
+        if (this.score - 5 < 0) {
           this.score = 0;
         } else {
-          this.score -= 30;
+          this.score -= 5;
         }
       }
 
