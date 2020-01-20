@@ -303,6 +303,8 @@ window.onload = function() {
   var springDesc = "AD OMCC";
   var junitDesc = "AD OSS";
   var javaDesc ="AD RMCC";
+  var postGresDesc = "AD Migration";
+  var springCloudDesc = "AD OSS";
 
   // Create a new pack
   var FullPack = new createPack("Programming Languages");
@@ -361,6 +363,8 @@ window.onload = function() {
     junitDesc
   );
   FullPack.add_new_card("Java", "./assets/java.png", [{point:4,label:"⭐⭐⭐⭐"},{point:104,label:"104"},{point:4,label:"Core"},{point:2,label:"Primary"}], javaDesc);
+  FullPack.add_new_card("Postgres", "./assets/postgres.png", [{point:3,label:"⭐⭐⭐"},{point:4,label:"4"},{point:3,label:"Adopt"},{point:2,label:"Primary"}], postGresDesc);
+  FullPack.add_new_card("Spring Cloud", "./assets/spring-cloud.png", [{point:3,label:"⭐⭐⭐"},{point:18,label:"18"},{point:2,label:"Assess/Trial"},{point:1,label:"Common"}], springCloudDesc);
 
   var game = null;
   var prompt = {
