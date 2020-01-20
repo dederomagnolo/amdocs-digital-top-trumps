@@ -1,6 +1,6 @@
 .window {
   width: 450px;
-  height: 350px;
+  height: 360px;
   background-color: rgba(37, 37, 37, 0.85);
   border: 1px solid #c9c9c9;
   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
@@ -78,6 +78,13 @@
   font-size: 0.75em;
   font-family: "Consolas", monospace;
   margin: 0 2px 0 5px;
+}
+
+.credits {
+  color: cyan;
+  font-size: 0.65em;
+  font-family: "Consolas", monospace;
+  margin: 0 5px 0 5px;
 }
 
 .js-prompt-output {
