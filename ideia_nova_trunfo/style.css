@@ -551,7 +551,14 @@ h1 {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width:1714px){
+  .window {
+    width: 355px;
+    height: 370px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
   .card_style.selected tr:not(.winner):hover {
     /*  border: dotted gray 2px; */
     background-color: inherit;
@@ -601,8 +608,13 @@ h1 {
     height: 40px;
   }
   .logo-amdocs {
-    margin-top: 8px;
+    margin-top: 5px;
     margin-left: 22px;
+  }
+
+  .logo-amdocs img {
+    height: 15px;
+    width: 70px;
   }
 
   .top_data {
@@ -634,5 +646,13 @@ h1 {
   }
   .fix-top-middle-image {
     display: inline;
+  }
+
+  .top-trumps-title {
+    display: none;
+  }
+
+  .window {
+    margin-top: 40%;
   }
 }
