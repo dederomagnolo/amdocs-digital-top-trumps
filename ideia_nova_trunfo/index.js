@@ -100,8 +100,8 @@ window.onload = function() {
       ) {
         $("#winner").text("You lose!");
         setTimeout(() => {
-          $("#card_image").attr("src", "./assets/sad_image.gif");
           $("#card_name").text("Y O U L O S E");
+          $("#card_image").attr("src", "./assets/sad_image.gif");
           //$("#amdocs_logo").attr("width", "30");
           //$("#amdocs_logo").attr("height", "30");
           //$("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
@@ -110,12 +110,19 @@ window.onload = function() {
       } else {
         $("#winner").text("Draw game!");
         setTimeout(() => {
-          $("#card_image").attr("src", "./assets/partyparrot.gif");
           $("#card_name").text("D R A W");
+          var $card_areas = $(".card_style");
+          $card_areas.removeClass("selected flipped"); //remove classes from both cards first
+          $("#card_picture2").attr("src" , "./assets/cat-lose.jpg");
+          $("#card_name2").text("D R A W");
+          $("#card_image").attr("src", "./assets/girl-lose.jpg");
           //$("#amdocs_logo").attr("width", "30");
           //$("#amdocs_logo").attr("height", "30");
           //$("#amdocs_logo").attr("src", "./assets/spinningparrot.gif");
           $("#description-text").text(
+            "draw draw draw draw draw draw draw draw draw draw"
+          );
+          $("#description-text2").text(
             "draw draw draw draw draw draw draw draw draw draw"
           );
         }, 1500);
